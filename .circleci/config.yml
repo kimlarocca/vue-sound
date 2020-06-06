@@ -7,9 +7,6 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "53:e9:1a:71:cf:11:fd:ac:21:d2:b9:fb:dd:33:0d:b9"
       - run: git reset --hard
       - run: git pull
       - node/with-cache:
@@ -20,6 +17,9 @@ jobs:
     machine:
       enabled: true
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "53:e9:1a:71:cf:11:fd:ac:21:d2:b9:fb:dd:33:0d:b9"
       - run:
           name: Deploy
           command: |
