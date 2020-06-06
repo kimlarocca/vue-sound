@@ -16,13 +16,15 @@ jobs:
           steps:
             - run: npm install
             - run: npm run build
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh root@198.211.112.212 'cd /var/www/blmmorristown && git pull && npm run build'
 workflows:
   build:
     jobs:
       - build
-# These commands are triggered only after a successful (green) build.
-deployment:
-  dev:
-    branch: master
-    commands:
-      - ssh root@198.211.112.212 'cd /var/www/blmmorristown && git pull && npm run build'
