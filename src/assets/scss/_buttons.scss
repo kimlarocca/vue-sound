@@ -1,0 +1,25 @@
+
+.button {
+  background: var(--button-background);
+  border: var(--button-border);
+  color: var(--button-text);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem 3rem;
+
+  &:hover {
+    background: var(--button-background-hover);
+    border: var(--button-border-hover);
+    color: var(--button-text-hover);
+  }
+
+  &.arrow {
+    &::after {
+      font-family: var(--font-family-fa);
+      font-weight: 900;
+      content: "\f30b";
+      margin-left: 0.5rem;
+    }
+  }
+}

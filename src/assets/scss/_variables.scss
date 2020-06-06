@@ -1,0 +1,72 @@
+:root {
+  // Typography
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Rock+Salt&display=swap");
+  --font-family-rock-salt: "Rock Salt", sans-serif;
+  --font-family-roboto: "Roboto", sans-serif;
+  --font-family-fa: "Font Awesome 5 Free", serif;
+
+  // Font Levers
+  --font-base: 18px;
+  --font-ratio: 1.125;
+
+  // Modular Scale
+  --font-size-1: calc(var(--font-size-2) / var(--font-ratio));
+  --font-size-2: calc(var(--font-size-3) / var(--font-ratio));
+  --font-size-3: calc(var(--font-size-4) / var(--font-ratio));
+  --font-size-4: calc(var(--font-size-5) / var(--font-ratio));
+  --font-size-5: calc(var(--font-size-6) / var(--font-ratio));
+  --font-size-6: var(--font-base);
+  --font-size-7: calc(var(--font-size-6) * var(--font-ratio));
+  --font-size-8: calc(var(--font-size-7) * var(--font-ratio));
+  --font-size-9: calc(var(--font-size-8) * var(--font-ratio));
+  --font-size-10: calc(var(--font-size-9) * var(--font-ratio));
+  --font-size-11: calc(var(--font-size-10) * var(--font-ratio));
+  --font-size-12: calc(var(--font-size-11) * var(--font-ratio));
+  --font-size-13: calc(var(--font-size-12) * var(--font-ratio));
+  --font-size-14: calc(var(--font-size-13) * var(--font-ratio));
+  --font-size-15: calc(var(--font-size-14) * var(--font-ratio));
+  --font-size-16: calc(var(--font-size-15) * var(--font-ratio));
+
+  --line-height-1: 1.4;
+  --line-height-2: 1.4;
+  --line-height-3: 1.4;
+  --line-height-4: 1.4;
+  --line-height-5: 1.8;
+  --line-height-6: 1.8;
+  --line-height-7: 1.1;
+  --line-height-8: 1.1;
+  --line-height-9: 1.2;
+  --line-height-10: 1.25;
+  --line-height-11: 1.2;
+  --line-height-12: 1.2;
+  --line-height-13: 1.2;
+  --line-height-14: 1.1;
+  --line-height-15: 1.1;
+  --line-height-16: 1;
+
+  // Layout
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1240px;
+  --max-width: var(--breakpoint-desktop);
+  --grid-gutter: 18px;
+  --grid-gutter-large: 36px;
+
+  // Animation
+  --transition: .3s ease-out;
+
+  // Links
+  --color-link: var(--color-black);
+  --color-link-background: var(--color-primary);
+  --link-decoration: none;
+  --color-link-hover: var(--color-white);
+  --color-link-background-hover: var(--color-black);
+  --link-decoration-hover: none;
+
+  // Buttons
+  --button-background: var(--color-black);
+  --button-text: var(--color-white);
+  --button-border: 2px solid var(--color-black);
+  --button-background-hover: var(--color-white);
+  --button-text-hover: var(--color-black);
+  --button-border-hover: 2px solid var(--color-black);
+}

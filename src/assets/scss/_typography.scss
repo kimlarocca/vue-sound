@@ -1,0 +1,18 @@
+.uppercase {
+  text-transform: uppercase;
+}
+
+.no-transform {
+  text-transform: none;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+b,
+strong,
+.strong {
+  font-weight: 600;
+}
