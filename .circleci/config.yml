@@ -16,8 +16,13 @@ jobs:
           steps:
             - run: npm install
             - run: npm run build
-      - run: scp -r -o StrictHostKeyChecking=no dist/* root@198.211.112.212:/var/www/blmmorristown/dist/
 workflows:
   build:
     jobs:
       - build
+# These commands are triggered only after a successful (green) build.
+deployment:
+  dev:
+    branch: master
+    commands:
+      - ssh root@198.211.112.212 'cd /var/www/blmmorristown && git pull && npm run build'
