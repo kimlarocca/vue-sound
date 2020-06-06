@@ -9,7 +9,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "b7:7b:56:37:97:40:5b:f9:76:71:14:5f:bb:39:8e:df"
+            - "95:4c:f9:3f:1e:5e:60:e6:50:4f:b8:3f:a1:7e:58:c0"
       - run: git reset --hard
       - run: git pull
       - node/with-cache:
