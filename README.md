@@ -1,4 +1,4 @@
-# blmmorristown
+# blm morristown
 
 ## Project setup
 ```
