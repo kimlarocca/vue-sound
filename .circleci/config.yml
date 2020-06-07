@@ -19,7 +19,7 @@ jobs:
             - run:
                 name: deploy
                 command: |
-                  scp -r -o StrictHostKeyChecking=no dist/* root@198.211.112.212:/var/www/blmmorristowmn/dist/
+                  scp -r -o StrictHostKeyChecking=no dist/* root@198.211.112.212:/var/www/blmmorristown/dist/
 workflows:
   version: 2
   build-and-deploy:
