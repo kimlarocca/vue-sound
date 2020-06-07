@@ -1,7 +1,7 @@
 <template>
   <section class="home">
     <div class="container">
-      <h1>Join the movement, fight for freedom!</h1>
+      <h1>Join the movement, fight for freedom!!</h1>
       <a class="button arrow">take action</a>
     </div>
     <div class="hero"></div>
