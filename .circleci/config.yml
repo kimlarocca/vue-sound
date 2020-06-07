@@ -13,22 +13,15 @@ jobs:
           steps:
             - run: npm install
             - run: npm run build
-  deploy:
-    machine:
-      enabled: true
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "53:e9:1a:71:cf:11:fd:ac:21:d2:b9:fb:dd:33:0d:b9"
-      - run:
-          name: Deploy
-          command: |
-            scp -r -o StrictHostKeyChecking=no dist/* root@198.211.112.212:/var/www/blmmorristowmn/dist/
+            - add_ssh_keys:
+                fingerprints:
+                  - "53:e9:1a:71:cf:11:fd:ac:21:d2:b9:fb:dd:33:0d:b9"
+            - run:
+                name: deploy
+                command: |
+                  scp -r -o StrictHostKeyChecking=no dist/* root@198.211.112.212:/var/www/blmmorristowmn/dist/
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - build
-      - deploy:
-          requires:
-            - build # only deploy once build job has completed
