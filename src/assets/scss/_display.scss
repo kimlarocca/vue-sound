@@ -1,0 +1,76 @@
+.u-display--inline-block {
+  display: inline-block;
+}
+
+.u-display--block {
+  display: block;
+}
+
+.u-flex,
+.u-display--flex {
+  display: flex;
+}
+
+.u-justify-content--space-between {
+  justify-content: space-between;
+}
+
+.u-justify-content--flex-end {
+  justify-content: flex-end;
+}
+
+.u-align-items--center {
+  align-items: center;
+}
+
+.u-flex-directon--column {
+  flex-direction: column;
+}
+
+.u-hide-until--s {
+  @media all and (max-width: $small - 1) {
+    display: none;
+  }
+}
+
+.u-hide-until--m {
+  @media all and (max-width: $medium - 1) {
+    display: none;
+  }
+}
+
+.u-hide-until--l {
+  @media all and (max-width: $large - 1) {
+    display: none;
+  }
+}
+
+.u-hide-until--xl {
+  @media all and (max-width: $xlarge - 1) {
+    display: none;
+  }
+}
+
+.u-hide-after--s {
+  @media all and (min-width: $small) {
+    display: none;
+  }
+}
+
+.u-hide-after--m {
+  @media all and (min-width: $medium) {
+    display: none;
+  }
+}
+
+.u-hide-after--l {
+  @media all and (min-width: $large) {
+    display: none;
+  }
+}
+
+.u-hide-after--xl {
+  @media all and (min-width: $xlarge) {
+    display: none;
+  }
+}

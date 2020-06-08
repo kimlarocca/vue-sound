@@ -2,7 +2,7 @@
   <section class="home">
     <div class="container">
       <h1>Join the movement, fight for freedom</h1>
-      <a class="button arrow">take action now</a>
+      <a class="button arrow">how to join</a>
     </div>
     <div class="hero"></div>
   </section>
@@ -13,7 +13,7 @@
     background: var(--color-primary);
     min-height: calc(100vh - 10rem);
     position: relative;
-    padding: 4rem 0 0 0;
+    padding: 6rem 0 0 0;
   }
 
   .hero {

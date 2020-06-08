@@ -1,3 +1,8 @@
+$small: 768px;
+$medium: 768px;
+$large: 1240px;
+$xlarge: 1440px;
+
 :root {
   // Typography
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Rock+Salt&display=swap");
@@ -44,15 +49,39 @@
   --line-height-15: 1.1;
   --line-height-16: 1;
 
+  // Spacing
+  --spacing-base-compact: 4px;
+  --spacing-increment-compact: 4px;
+  --spacing-base-default: 8px;
+  --spacing-increment-default: 8px;
+  --spacing-base-loose: 16px;
+  --spacing-increment-loose: 10px;
+
+  // Spacing Levers
+  --spacing-base: var(--spacing-base-default);
+  --spacing-increment: var(--spacing-increment-default);
+
+  // Spacing Tokens
+  --space-1: calc(var(--spacing-base) / 2);
+  --space-2: var(--spacing-base);
+  --space-3: calc(var(--space-2) + var(--spacing-increment));
+  --space-4: calc(var(--space-3) + var(--spacing-increment));
+  --space-5: calc(var(--space-4) + var(--spacing-increment));
+  --space-6: calc(var(--space-5) + var(--spacing-increment));
+  --space-7: calc(var(--space-6) + var(--spacing-increment));
+  --space-8: calc(var(--space-7) + var(--spacing-increment));
+  --space-9: calc(var(--space-8) + var(--spacing-increment));
+  --space-10: calc(var(--space-9) + var(--spacing-increment));
+  --space-11: calc(var(--space-10) + var(--spacing-increment));
+
   // Layout
-  --breakpoint-tablet: 768px;
-  --breakpoint-desktop: 1240px;
-  --max-width: var(--breakpoint-desktop);
+  --max-width: 1240px;
   --grid-gutter: 18px;
-  --grid-gutter-large: 36px;
+  --grid-gutter-large: 72px;
 
   // Animation
   --transition: .3s ease-out;
+  --opacity-on-hover: .75;
 
   // Links
   --color-link: var(--color-black);
@@ -69,4 +98,14 @@
   --button-background-hover: var(--color-white);
   --button-text-hover: var(--color-black);
   --button-border-hover: 2px solid var(--color-black);
+
+  // Cards
+  --card-background: var(--color-light-gray);
+  --card-header-background: var(--color-gray);
+  --card-color-link: var(--color-secondary);
+  --card-padding: 1rem;
+  --card-margin: 1rem;
+
+  // Icons
+  --icon-color: var(--color-black);
 }

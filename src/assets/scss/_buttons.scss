@@ -1,5 +1,7 @@
-
-.button {
+.button,
+.button:visited,
+.button:active {
+  display: inline-block;
   background: var(--button-background);
   border: var(--button-border);
   color: var(--button-text);
@@ -7,6 +9,7 @@
   font-weight: 700;
   font-size: 1rem;
   padding: 1rem 3rem;
+  transition: var(--transition);
 
   &:hover {
     background: var(--button-background-hover);

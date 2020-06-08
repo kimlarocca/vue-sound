@@ -1,0 +1,47 @@
+$sizes: (
+        "":         var(--space-3),
+        --quarter:  calc(var(--space-3) / 4),
+        --half:     calc(var(--space-3) / 2),
+        --and-half: calc(var(--space-3) * 1.5),
+        --double:   calc(var(--space-3) * 2),
+        --triple:   calc(var(--space-3) * 3),
+        --quad:     calc(var(--space-3) * 4),
+        --zero:     0rem
+);
+
+/**
+ * Default Spacing/Padding
+ * Maintain a spacing system divisible by 8
+ */
+$space:             16px;
+$space-quarter:     $space/4;   // 4
+$space-half:        $space/2;   // 8
+$space-and-half:    $space*1.5; // 24
+$space-double:      $space*2;   // 32
+$space-double-half: $space*2.5; // 40
+$space-triple:      $space*3;   // 48
+$space-quad:        $space*4;   // 64
+
+$sides: (
+        "": "",
+        --top: "-top",
+        --bottom: "-bottom",
+        --left: "-left",
+        --right: "-right"
+);
+
+@each $size_key, $size_value in $sizes {
+  .u-spacing#{$size_key} > * + * {
+    margin-top: #{$size_value};
+  }
+
+  @each $side_key, $side_value in $sides {
+    .u-padding#{$size_key}#{$side_key} {
+      padding#{$side_value}: #{$size_value};
+    }
+
+    .u-space#{$size_key}#{$side_key} {
+      margin#{$side_value}: #{$size_value};
+    }
+  }
+}

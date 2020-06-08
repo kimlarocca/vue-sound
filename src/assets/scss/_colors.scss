@@ -5,5 +5,71 @@
   --color-gray: #afafaf;
   --color-light-gray: #f3f3f3;
   --color-primary: #fce21b;
+  --color-secondary: #4a44f2;
 }
 
+// Text Colors
+
+.u-color--black,
+.u-color--black a {
+  color: var(--color-black);
+}
+
+.u-color--gray,
+.u-color--gray a {
+  color: var(--color-gray);
+}
+
+.u-color--gray--light,
+.u-color--gray--light a {
+  color: var(--color-light-gray);
+}
+
+.u-color--meta,
+.u-color--meta a {
+  color: var(--color-text-metadata);
+}
+
+.u-color--primary,
+.u-color--primary a {
+  color: var(--color-primary);
+}
+
+.u-color--secondary,
+.u-color--secondary a {
+  color: var(--color-secondary);
+}
+
+// Background Colors
+
+.u-background-color--none {
+  background: none;
+}
+
+.u-background-color--black {
+  background-color: var(--color-black);
+}
+
+.u-background-color--gray {
+  background-color: var(--color-gray);
+}
+
+.u-background-color--gray--light {
+  background-color: var(--color-light-gray);
+}
+
+.u-background-color--gray--dark {
+  background-color: var(--color-dark-gray);
+}
+
+.u-background-color--white {
+  background-color: var(--color-white);
+}
+
+.u-background-color--primary {
+  background-color: var(--color-primary);
+}
+
+.u-background-color--secondary {
+  background-color: var(--color-secondary);
+}

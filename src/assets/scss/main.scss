@@ -1,5 +1,8 @@
+@import "reset";
 @import "colors";
 @import "variables";
+@import "spacing";
+@import "display";
 @import "typography";
 @import "layout";
 @import "buttons";
@@ -27,8 +30,16 @@ body {
 }
 
 #app {
-  margin: 3rem;
-  min-height: calc(100vh - 6rem);
+  margin: 1rem;
+  min-height: calc(100vh - 2rem);
+  @media all and (min-width: $medium) {
+    margin: 2rem;
+    min-height: calc(100vh - 4rem);
+  }
+  @media all and (min-width: $large) {
+    margin: 3rem;
+    min-height: calc(100vh - 6rem);
+  }
 }
 
 img {

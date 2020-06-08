@@ -1,18 +1,117 @@
-.uppercase {
+/**
+ * Headers
+ */
+
+@mixin typeface($type, $size) {
+  font-family: var(--font-family-#{$type});
+  letter-spacing: var(--letter-spacing-#{$type});
+  font-weight: var(--font-weight-#{$type});
+  line-height: var(--line-height-#{$size});
+  font-size: var(--font-size-#{$size});
+}
+
+h1 {
+  @include typeface(rock-salt, 9);
+  @media all and (min-width: $medium) {
+    @include typeface(rock-salt, 11);
+  }
+  @media all and (min-width: $large) {
+    @include typeface(rock-salt, 16);
+  }
+}
+
+h2 {
+  @include typeface(header, 9);
+  @media all and (min-width: $medium) {
+    @include typeface(header, 14);
+  }
+}
+
+h3 {
+  @include typeface(header, 8);
+  @media all and (min-width: $large) {
+    @include typeface(header, 11);
+  }
+}
+
+h4 {
+  @include typeface(header, 6);
+  @media all and (min-width: $medium) {
+    @include typeface(header, 8);
+  }
+}
+
+h5 {
+  @include typeface(small, 5);
+  @media all and (min-width: $medium) {
+    @include typeface(small, 6);
+  }
   text-transform: uppercase;
 }
 
-.no-transform {
-  text-transform: none;
+h6 {
+  @include typeface(small, 5);
+  @media all and (min-width: $medium) {
+    @include typeface(small, 6);
+  }
 }
 
-i,
-em {
+/**
+ * Text Transforms
+ */
+
+.u-text-transform--upper {
+  text-transform: uppercase;
+}
+
+.u-text-transform--lower {
+  text-transform: lowercase;
+}
+
+.u-text-transform--capitalize {
+  text-transform: capitalize;
+}
+
+/**
+ * Text Styles
+ */
+
+.u-text-style--italic {
   font-style: italic;
 }
 
-b,
-strong,
-.strong {
-  font-weight: 600;
+.u-font-weight--normal {
+  font-weight: normal;
+}
+
+.u-font-weight--bold {
+  font-weight: bold;
+}
+
+/**
+ * Text Positioning
+ */
+
+.u-align--left {
+  text-align: left;
+}
+
+.u-align--center {
+  text-align: center;
+}
+
+.u-align--right {
+  text-align: right;
+}
+
+/**
+ * Text Decorations
+ */
+
+.u-text-decoration--none {
+  text-decoration: none;
+}
+
+.u-text-decoration--underline {
+  text-decoration: underline;
 }
