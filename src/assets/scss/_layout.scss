@@ -1,7 +1,7 @@
 .l-container {
   width: calc(100% - 2rem);
 
-  @media all and (min-width: $large) {
+  @media all and (min-width: $medium) {
     max-width: var(--max-width);
     margin: auto;
   }
@@ -14,7 +14,7 @@
 }
 
 .l-grid--large-gutters {
-  @media all and (min-width: $large) {
+  @media all and (min-width: $medium) {
     grid-gap: var(--grid-gutter-large);
   }
 }
@@ -24,43 +24,39 @@
 }
 
 .l-grid--2up {
-  @media all and (min-width: $large) {
+  @media all and (min-width: $medium) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .l-grid--3up {
-  @media all and (min-width: $large) {
+  @media all and (min-width: $medium) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .l-grid--4up {
-  @media all and (min-width: var(--breakpoint-tablet)) {
+  @media all and (min-width: $medium) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media all and (min-width: $large) {
+  @media all and (min-width: $medium) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .l-grid--5up {
-  @media all and (min-width: $large) {
+  @media all and (min-width: $medium) {
     grid-template-columns: repeat(5, 1fr);
   }
 }
 
 .l-grid--2x3 {
-  @media all and (min-width: $large) {
     grid-template-columns: 1fr 2fr;
-  }
 }
 
 .l-grid--3x2 {
-  @media all and (min-width: $large) {
     grid-template-columns: 2fr 1fr;
-  }
 }
 
 .l-grid--1x4 {
@@ -71,22 +67,22 @@
   grid-template-columns: 3fr 1fr;
 }
 
-.l-grid--right-rail {
-  @media all and (min-width: $large) {
-    grid-template-columns: 1fr 300px;
+.l-grid--1up--small {
+  @media all and (max-width: $medium) {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
 // ordering
 
 .l-grid--order-1-large {
-  @media all and (min-width: $large) {
+  @media all and (min-width: $medium) {
     order: 1;
   }
 }
 
 .l-grid--order-2-large {
-  @media all and (min-width: $large) {
+  @media all and (min-width: $medium) {
     order: 2;
   }
 }

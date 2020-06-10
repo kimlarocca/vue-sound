@@ -1,7 +1,7 @@
 <template>
   <li>
-    <a :href="link" :style="{ background: backgroundColor }" :class="{'no-background' : !hasBackground }">
-      <i :class="icon" :style="{ color: iconColor }"/>
+    <a :href="link" :aria-label="label">
+      <i :class="icon"/>
     </a>
   </li>
 </template>
@@ -10,17 +10,9 @@
   export default {
     name: 'SocialLink',
     props: {
-      id: Number,
       icon: String,
       link: String,
-      altText: String,
-      iconColor: String,
-      backgroundColor: String
-    },
-    computed: {
-      hasBackground () {
-        return !!this.$props.backgroundColor
-      }
+      label: String
     }
   }
 </script>
@@ -35,22 +27,16 @@
       a:visited,
       a:active {
         color: var(--icon-color);
-        background: transparent;
-        height: 1.5rem;
-        width: 1.5rem;
+        background: var(--icon-background-color);
+        height: var(--icon-size);
+        width: var(--icon-size);
         display: inline-block;
-        font-size: 1rem;
-        text-align: center;
-        opacity: 1;
+        font-size: var(--icon-size);
         transition: var(--transition);
 
         &:hover {
-          opacity: var(--opacity-on-hover);
-        }
-
-        &.no-background {
-          height: 1rem;
-          width: 1rem;
+          color: var(--icon-color-hover);
+          background: var(--icon-background-color-hover);
         }
       }
 

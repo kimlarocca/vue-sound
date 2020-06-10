@@ -1,5 +1,5 @@
 <template>
-  <div class="responsive-embed widescreen">
+  <div class="responsive-embed">
     <iframe width="1240" height="700" :src="url" allowfullscreen></iframe>
   </div>
 </template>

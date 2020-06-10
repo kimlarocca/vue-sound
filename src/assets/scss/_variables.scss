@@ -4,7 +4,7 @@ $large: 1240px;
 $xlarge: 1440px;
 
 :root {
-  // Typography
+  // Fonts
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Rock+Salt&display=swap");
   --font-family-rock-salt: "Rock Salt", sans-serif;
   --font-family-roboto: "Roboto", sans-serif;
@@ -83,13 +83,29 @@ $xlarge: 1440px;
   --transition: .3s ease-out;
   --opacity-on-hover: .75;
 
+  // Main Styles
+  --color-text: var(--color-black);
+  --color-background: var(--color-white);
+  --font-family: var(--font-family-roboto);
+  --color-hr: var(--color-gray);
+
   // Links
-  --color-link: var(--color-black);
-  --color-link-background: var(--color-primary);
+  --color-link: var(--color-secondary);
   --link-decoration: none;
-  --color-link-hover: var(--color-white);
-  --color-link-background-hover: var(--color-black);
+  --color-link-hover: var(--color-black);
   --link-decoration-hover: none;
+
+  // Forms
+  --forms-input-width: 100%;
+  --forms-input-height: 3rem;
+  --forms-text-area-height: 100px;
+  --forms-input-padding: var(--space-1) var(--space-2);
+  --forms-input-font-family: var(--font-family);
+  --forms-input-font-size: var(--font-base);
+  --forms-input-color: var(--color-text);
+  --forms-input-border: 1px solid var(--color-gray);
+  --forms-input-outline-color: 1px solid var(--color-secondary);
+  --forms-inline-button-padding: 0 1rem;
 
   // Buttons
   --button-background: var(--color-black);
@@ -98,14 +114,32 @@ $xlarge: 1440px;
   --button-background-hover: var(--color-white);
   --button-text-hover: var(--color-black);
   --button-border-hover: 2px solid var(--color-black);
+  --button-font-size: var(--font-size-3);
+  --button-font-weight: 700;
+  --button-text-transform: uppercase;
+  --button-padding: var(--space-3) var(--space-6);
+
+  // Breadcrumbs
+  --breadcrumbs-text: var(--color-text);
+  --breadcrumbs-link-color: var(--color-link);
+  --breadcrumbs-link-color-hover: var(--color-link-hover);
+  --breadcrumbs-spacing: var(--space-3);
+  --breadcrumbs-seperator: '/';
+  --breadcrumbs-seperator-color: var(--color-text);
 
   // Cards
   --card-background: var(--color-light-gray);
   --card-header-background: var(--color-gray);
   --card-color-link: var(--color-secondary);
-  --card-padding: 1rem;
-  --card-margin: 1rem;
 
   // Icons
   --icon-color: var(--color-black);
+  --icon-background-color: transparent;
+  --icon-color-hover: var(--color-secondary);
+  --icon-background-color-hover: transparent;
+  --icon-size: 1rem;
+
+  // Image With Caption
+  --image-with-caption-text: var(--color-white);
+  --image-with-caption-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
 }

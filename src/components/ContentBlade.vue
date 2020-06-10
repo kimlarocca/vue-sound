@@ -1,25 +1,25 @@
 <template>
-    <section class="content-blade">
-        <div class="l-grid l-grid--middle l-grid--large-gutters"
-             :class="rightAligned ? 'l-grid--3x2' : 'l-grid--2x3'">
-            <div v-if="hasImage"
-                 :class="rightAligned ? 'l-grid--order-2-large' : 'l-grid--order-1-large'">
-                <img :src="image" :alt="altText">
-            </div>
-            <div v-if="hasVideo"
-                 :class="rightAligned ? 'l-grid--order-2-large' : 'l-grid--order-1-large'">
-                <media-block :url="video"></media-block>
-            </div>
-            <div class="content"
-                 :class="rightAligned ? 'l-grid--order-1-large' : 'l-grid--order-2-large'">
-                <h3 v-if="hasTitle" class="u-space--double--bottom">{{ title }}</h3>
-                <slot name="content"></slot>
-                <template v-if="hasLink && hasCta">
-                    <a :href="link" class="button u-space--double--top" target="_blank">{{cta}}</a>
-                </template>
-            </div>
-        </div>
-    </section>
+  <section class="content-blade">
+    <div class="l-grid l-grid--large-gutters" :class="getLayout()">
+      <div v-if="hasImage"
+           :class="rightAligned ? 'l-grid--order-2-large' : 'l-grid--order-1-large'">
+        <img :src="image" :alt="altText">
+      </div>
+      <div v-if="hasVideo"
+           :class="rightAligned ? 'l-grid--order-2-large' : 'l-grid--order-1-large'">
+        <media-block :url="video"></media-block>
+      </div>
+      <div class="content"
+           :class="rightAligned ? 'l-grid--order-1-large' : 'l-grid--order-2-large'">
+        <p v-if="hasPretitle" class="pretitle u-space--bottom">{{ pretitle }}</p>
+        <h3 v-if="hasTitle" class="u-space--bottom">{{ title }}</h3>
+        <slot name="content"></slot>
+        <p v-if="hasLink && hasCta" class="u-space--top">
+          <a :href="link" target="_blank">{{cta}}</a>
+        </p>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -31,18 +31,26 @@
       'media-block': MediaBlock
     },
     props: {
+      pretitle: String,
       title: String,
       image: String,
       altText: String,
       video: String,
       alignment: String,
+      layout: {
+        type: String,
+        default: 'equal'
+      },
       cta: {
         type: String,
-        default: 'learn more'
+        default: 'Read More'
       },
       link: String
     },
     computed: {
+      hasPretitle () {
+        return !!this.$props.pretitle
+      },
       hasTitle () {
         return !!this.$props.title
       },
@@ -60,6 +68,27 @@
       },
       rightAligned () {
         return this.$props.alignment === 'right'
+      }
+    },
+    methods: {
+      getLayout () {
+        if (this.$props.alignment === 'right') {
+          if (this.$props.layout === '2x3') {
+            return 'l-grid--3x2 l-grid--1up--small'
+          } else if (this.$props.layout === '1x4') {
+            return 'l-grid--4x1 l-grid--1up--small'
+          } else {
+            return 'l-grid--2up'
+          }
+        } else {
+          if (this.$props.layout === '2x3') {
+            return 'l-grid--2x3 l-grid--1up--small'
+          } else if (this.$props.layout === '1x4') {
+            return 'l-grid--1x4 l-grid--1up--small'
+          } else {
+            return 'l-grid--2up'
+          }
+        }
       }
     }
   }

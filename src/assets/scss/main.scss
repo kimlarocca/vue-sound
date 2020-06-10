@@ -1,10 +1,12 @@
 @import "reset";
 @import "colors";
 @import "variables";
+@import "accessibility";
 @import "spacing";
 @import "display";
 @import "typography";
 @import "layout";
+@import "forms";
 @import "buttons";
 
 * {
@@ -13,9 +15,9 @@
 
 body,
 html {
-  background-color: var(--color-white);
+  background-color: var(--color-background);
   font-size: var(--font-base);
-  font-family: var(--font-family-roboto);
+  font-family: var(--font-family);
   color: var(--color-text);
   width: 100%;
   height: 100%;
@@ -55,13 +57,11 @@ a,
 a:visited,
 a:active {
   color: var(--color-link);
-  background: var(--color-link-background);
   text-decoration: var(--link-decoration);
   transition: var(--transition);
 
   &:hover {
     color: var(--color-link-hover);
-    background: var(--color-link-background-hover);
     text-decoration: var(--link-decoration-hover);
     cursor: pointer;
   }
@@ -70,5 +70,5 @@ a:active {
 hr {
   border: 0;
   height: 1px;
-  background: var(--color-gray);
+  background: var(--color-hr);
 }

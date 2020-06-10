@@ -52,7 +52,7 @@
 
     .caption {
       position: absolute;
-      color: var(--color-white);
+      color: var(--image-with-caption-text);
       z-index: 2;
       right: 1rem;
       bottom: 1rem;
@@ -60,7 +60,7 @@
   }
 
   .black-gradient-overlay {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    background: var(--image-with-caption-gradient);
     position: absolute;
     height: 100px;
     bottom: 0;

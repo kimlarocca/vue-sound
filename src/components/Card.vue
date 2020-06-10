@@ -1,17 +1,17 @@
 <template>
 
   <div class="card">
-    <div v-if="hasHeader" class="header">{{ header }}</div>
+    <div v-if="hasTitle" class="title u-padding">{{ title }}</div>
     <a v-if="hasLink" :href="link" :aria-label="title"></a>
     <img v-if="hasImage" :src="image" :alt="altText"/>
     <div v-if="hasVideo">
       <media-block :url="video"></media-block>
     </div>
-    <div class="content">
-      <div v-if="hasSubtitle" class="subtitle">{{ subtitle }}</div>
-      <div class="title">{{ title }}</div>
+    <div class="content u-padding">
+      <div v-if="hasSubtitle" class="subtitle u-space--bottom">{{ subtitle }}</div>
+      <div class="description">{{ description }}</div>
       <template v-if="hasTextLink">
-        <div class="cta">{{ cta }}</div>
+        <div class="cta u-space--top">{{ cta }}</div>
       </template>
     </div>
   </div>
@@ -27,12 +27,12 @@
       'media-block': MediaBlock
     },
     props: {
-      header: String,
+      title: String,
       video: String,
       image: String,
       altText: String,
       subtitle: String,
-      title: String,
+      description: String,
       cta: {
         type: String,
         default: 'learn more'
@@ -43,8 +43,8 @@
       }
     },
     computed: {
-      hasHeader () {
-        return !!this.$props.header
+      hasTitle () {
+        return !!this.$props.title
       },
       hasImage () {
         return !!this.$props.image
@@ -76,10 +76,8 @@
       cursor: pointer;
     }
 
-    .header {
-      padding: var(--card-padding);
+    .title {
       background: var(--card-header-background);
-      text-transform: uppercase;
       font-weight: 700;
     }
 
@@ -89,29 +87,13 @@
     }
 
     .content {
-      padding: var(--card-padding);
 
       .subtitle {
-        text-transform: uppercase;
         font-weight: 700;
-        margin-bottom: var(--card-margin);
-      }
-
-      .title {
-        margin-bottom: 0;
       }
 
       .cta {
-        font-weight: 700;
         color: var(--card-color-link);
-        margin: var(--card-margin) 0 0;
-
-        &::after {
-          font-family: var(--font-family-fa);
-          font-weight: 900;
-          content: "\f30b";
-          margin-left: 0.5rem;
-        }
       }
     }
   }
