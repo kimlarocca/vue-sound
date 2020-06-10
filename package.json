@@ -1,5 +1,5 @@
 {
-  "name": "blmmorristown",
+  "name": "vue-design-system",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -42,5 +42,26 @@
     "react-is": "^16.13.1",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "description": "Design system built with Vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimlarocca/vue-design-system.git"
+  },
+  "keywords": [
+    "vue",
+    "design",
+    "system",
+    "vuejs",
+    "component",
+    "library",
+    "ui",
+    "library"
+  ],
+  "author": "Kim LaRocca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kimlarocca/vue-design-system/issues"
+  },
+  "homepage": "https://github.com/kimlarocca/vue-design-system#readme"
 }
