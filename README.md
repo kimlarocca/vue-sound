@@ -1,4 +1,4 @@
-# vue design system
+# vuEvolve, a design system built with storybook and vue js
 
 ## Project setup
 ```
