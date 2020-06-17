@@ -1,13 +1,20 @@
-$small: 768px;
-$medium: 768px;
-$large: 1240px;
-$xlarge: 1440px;
-
 :root {
+  // Colors
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-dark-gray: #333333;
+  --color-gray: #afafaf;
+  --color-light-gray: #f3f3f3;
+  --color-primary: #fce21b;
+  --color-secondary: #4a44f2;
+  --color-tertiary: #00ffc4;
+  --color-quaternary: #fc6a1b;
+  --color-quinary: #f244e1;
+
   // Fonts
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Rock+Salt&display=swap");
-  --font-family-rock-salt: "Rock Salt", sans-serif;
-  --font-family-roboto: "Roboto", sans-serif;
+  --font-family-secondary: "Rock Salt", sans-serif;
+  --font-family-primary: "Roboto", sans-serif;
   --font-family-fa: "Font Awesome 5 Free", serif;
 
   // Font Levers
@@ -49,6 +56,54 @@ $xlarge: 1440px;
   --line-height-15: 1.1;
   --line-height-16: 1;
 
+  // Typography (based on modular scale set above)
+
+  h1 {
+    @include typeface(secondary, 9);
+    @media all and (min-width: $medium) {
+      @include typeface(secondary, 11);
+    }
+    @media all and (min-width: $large) {
+      @include typeface(secondary, 16);
+    }
+  }
+
+  h2 {
+    @include typeface(primary, 9);
+    @media all and (min-width: $medium) {
+      @include typeface(primary, 14);
+    }
+  }
+
+  h3 {
+    @include typeface(primary, 8);
+    @media all and (min-width: $large) {
+      @include typeface(primary, 11);
+    }
+  }
+
+  h4 {
+    @include typeface(primary, 6);
+    @media all and (min-width: $medium) {
+      @include typeface(heaprimaryder, 8);
+    }
+  }
+
+  h5 {
+    @include typeface(primary, 5);
+    @media all and (min-width: $medium) {
+      @include typeface(primary, 6);
+    }
+    text-transform: uppercase;
+  }
+
+  h6 {
+    @include typeface(primary, 5);
+    @media all and (min-width: $medium) {
+      @include typeface(primary, 6);
+    }
+  }
+
   // Spacing
   --spacing-base-compact: 4px;
   --spacing-increment-compact: 4px;
@@ -86,8 +141,9 @@ $xlarge: 1440px;
   // Main Styles
   --color-text: var(--color-black);
   --color-background: var(--color-white);
-  --font-family: var(--font-family-roboto);
+  --font-family: var(--font-family-primary);
   --color-hr: var(--color-gray);
+  --hr-height: 1px;
 
   // Links
   --color-link: var(--color-secondary);

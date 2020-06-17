@@ -1,6 +1,4 @@
-/**
- * Headers
- */
+// Headers
 
 @mixin typeface($type, $size) {
   font-family: var(--font-family-#{$type});
@@ -10,55 +8,7 @@
   font-size: var(--font-size-#{$size});
 }
 
-h1 {
-  @include typeface(rock-salt, 9);
-  @media all and (min-width: $medium) {
-    @include typeface(rock-salt, 11);
-  }
-  @media all and (min-width: $large) {
-    @include typeface(rock-salt, 16);
-  }
-}
-
-h2 {
-  @include typeface(header, 9);
-  @media all and (min-width: $medium) {
-    @include typeface(header, 14);
-  }
-}
-
-h3 {
-  @include typeface(header, 8);
-  @media all and (min-width: $large) {
-    @include typeface(header, 11);
-  }
-}
-
-h4 {
-  @include typeface(header, 6);
-  @media all and (min-width: $medium) {
-    @include typeface(header, 8);
-  }
-}
-
-h5 {
-  @include typeface(small, 5);
-  @media all and (min-width: $medium) {
-    @include typeface(small, 6);
-  }
-  text-transform: uppercase;
-}
-
-h6 {
-  @include typeface(small, 5);
-  @media all and (min-width: $medium) {
-    @include typeface(small, 6);
-  }
-}
-
-/**
- * Text Transforms
- */
+// Text Transforms
 
 .u-text-transform--upper {
   text-transform: uppercase;
@@ -72,9 +22,7 @@ h6 {
   text-transform: capitalize;
 }
 
-/**
- * Text Styles
- */
+// Text Styles
 
 .u-text-style--italic {
   font-style: italic;
@@ -88,9 +36,7 @@ h6 {
   font-weight: bold;
 }
 
-/**
- * Text Positioning
- */
+// Text Alignment
 
 .u-align--left {
   text-align: left;
@@ -104,9 +50,7 @@ h6 {
   text-align: right;
 }
 
-/**
- * Text Decorations
- */
+// Text Decorations
 
 .u-text-decoration--none {
   text-decoration: none;

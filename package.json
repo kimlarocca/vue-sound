@@ -1,12 +1,11 @@
 {
-  "name": "vue-design-system",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-evolve",
+  "version": "0.0.2",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./stories -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -17,9 +16,6 @@
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@storybook/addon-a11y": "^5.3.19",
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-docs": "^6.0.0-beta.23",
-    "@storybook/addon-links": "^5.3.19",
     "@storybook/addon-viewport": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/vue": "^5.3.19",
@@ -43,7 +39,7 @@
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "description": "Design system built with Vue",
+  "description": "A design system built with Storybook and Vue.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kimlarocca/vue-design-system.git"
@@ -61,7 +57,7 @@
   "author": "Kim LaRocca",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kimlarocca/vue-design-system/issues"
+    "url": "https://github.com/kimlarocca/vue-evolve/issues"
   },
-  "homepage": "https://github.com/kimlarocca/vue-design-system#readme"
+  "homepage": "https://github.com/kimlarocca/vue-evolve#readme"
 }

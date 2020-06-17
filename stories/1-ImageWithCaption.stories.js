@@ -1,7 +1,8 @@
 import ImageWithCaption from '../src/components/ImageWithCaption'
 
 export default {
-  title: 'Image With Caption'
+  title: 'Image With Caption',
+  component: ImageWithCaption
 }
 
 export const WithGradient = () => ({
@@ -9,7 +10,7 @@ export const WithGradient = () => ({
   template: `
     <div class="sbdocs-small-container">
       <image-with-caption
-        image="https://picsum.photos/768/400?grayscale"
+        image="./assets/Placeholder-Image-4_3.png"
         altText="lorem ipsum dolor"
         caption="by john doe"
         link="http://www.bing.com"
@@ -24,7 +25,7 @@ export const WithoutGradient = () => ({
   template: `
     <div class="sbdocs-small-container">
       <image-with-caption
-        image="https://picsum.photos/768/400?grayscale"
+        image="./assets/Placeholder-Image-4_3.png"
         altText="lorem ipsum dolor"
         caption="by john doe"
         link="http://www.bing.com"

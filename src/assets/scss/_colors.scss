@@ -1,15 +1,3 @@
-:root {
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-dark-gray: #333333;
-  --color-gray: #afafaf;
-  --color-light-gray: #f3f3f3;
-  --color-primary: #fce21b;
-  --color-secondary: #4a44f2;
-}
-
-// Text Colors
-
 .u-color--black,
 .u-color--black a {
   color: var(--color-black);
@@ -25,11 +13,6 @@
   color: var(--color-light-gray);
 }
 
-.u-color--meta,
-.u-color--meta a {
-  color: var(--color-text-metadata);
-}
-
 .u-color--primary,
 .u-color--primary a {
   color: var(--color-primary);
@@ -38,6 +21,21 @@
 .u-color--secondary,
 .u-color--secondary a {
   color: var(--color-secondary);
+}
+
+.u-color--tertiary,
+.u-color--tertiary a {
+  color: var(--color-tertiary);
+}
+
+.u-color--quaternary,
+.u-color--quaternary a {
+  color: var(--color-quaternary);
+}
+
+.u-color--quinary,
+.u-color--quinary a {
+  color: var(--color-quinary);
 }
 
 // Background Colors
@@ -72,4 +70,16 @@
 
 .u-background-color--secondary {
   background-color: var(--color-secondary);
+}
+
+.u-background-color--tertiary {
+  background-color: var(--color-tertiary);
+}
+
+.u-background-color--quaternary {
+  background-color: var(--color-quaternary);
+}
+
+.u-background-color--quinary {
+  background-color: var(--color-quinary);
 }

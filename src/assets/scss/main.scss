@@ -1,11 +1,12 @@
 @import "reset";
+@import "breakpoints";
 @import "colors";
-@import "variables";
-@import "accessibility";
+@import "typography";
+@import "settings";
 @import "spacing";
 @import "display";
-@import "typography";
 @import "layout";
+@import "accessibility";
 @import "forms";
 @import "buttons";
 
@@ -29,19 +30,6 @@ html {
 
 body {
   overflow-x: hidden;
-}
-
-#app {
-  margin: 1rem;
-  min-height: calc(100vh - 2rem);
-  @media all and (min-width: $medium) {
-    margin: 2rem;
-    min-height: calc(100vh - 4rem);
-  }
-  @media all and (min-width: $large) {
-    margin: 3rem;
-    min-height: calc(100vh - 6rem);
-  }
 }
 
 img {
@@ -69,6 +57,6 @@ a:active {
 
 hr {
   border: 0;
-  height: 1px;
+  height: var(--hr-height);
   background: var(--color-hr);
 }

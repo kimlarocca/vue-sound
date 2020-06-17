@@ -1,7 +1,8 @@
 import Breadcrumbs from '../src/components/Breadcrumbs'
 
 export default {
-  title: 'Breadcrumbs'
+  title: 'Breadcrumbs',
+  component: Breadcrumbs
 }
 
 export const All = () => ({

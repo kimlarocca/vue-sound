@@ -1,27 +1,28 @@
 import Card from '../src/components/Card'
 
 export default {
-  title: 'Card'
+  title: 'Card',
+  component: Card
 }
 
-export const WithImage = () => ({
+export const WithAnImage = () => ({
   components: { Card },
   template: `
     <div class="sbdocs-small-container">
       <card
         title="Title"
-        image="https://picsum.photos/768/400?grayscale"
+        image="./assets/Placeholder-Image-4_3.png"
         altText="alternative text"
         subdescription="subtitle"
         :hasTextLink="true"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae consectetur corporis dicta magnam, molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem? Enim facilis ipsum odio praesentium quis."
       >
       </card>
     </div>
   `
 })
 
-export const WithVideo = () => ({
+export const WithAVideo = () => ({
   components: { Card },
   template: `
     <div class="sbdocs-small-container">
@@ -31,67 +32,8 @@ export const WithVideo = () => ({
         altText="alternative text"
         subdescription="subtitle"
         :hasTextLink="true"
-        cta="click here"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-      >
-      </card>
-    </div>
-  `
-})
-
-export const WithoutTitle = () => ({
-  components: { Card },
-  template: `
-    <div class="sbdocs-small-container">
-      <card
-        image="https://picsum.photos/768/400?grayscale"
-        altText="alternative text"
-        subdescription="subtitle"
-        :hasTextLink="true"
-        cta="click here"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-      >
-      </card>
-    </div>
-  `
-})
-
-export const WithoutSubtitle = () => ({
-  components: { Card },
-  template: `
-    <div class="sbdocs-small-container">
-      <card
-        image="https://picsum.photos/768/400?grayscale"
-        altText="alternative text"
-        :hasTextLink="true"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-      >
-      </card>
-    </div>
-  `
-})
-
-export const WithoutCTA = () => ({
-  components: { Card },
-  template: `
-    <div class="sbdocs-small-container">
-      <card
-        image="https://picsum.photos/768/400?grayscale"
-        altText="alternative text"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-      >
-      </card>
-    </div>
-  `
-})
-
-export const WithoutImage = () => ({
-  components: { Card },
-  template: `
-    <div class="sbdocs-small-container">
-      <card
-        altText="alternative text"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+        cta="Click Here"
+        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae consectetur corporis dicta magnam, molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem? Enim facilis ipsum odio praesentium quis."
       >
       </card>
     </div>

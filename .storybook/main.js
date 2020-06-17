@@ -2,8 +2,8 @@ const path = require('path');
 
 module.exports = {
   stories: ['../stories/**/*.stories.(js|mdx)'],
-  addons: ['@storybook/addon-docs', '@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-viewport/register', '@storybook/addon-a11y/register'],
-  webpackFinal: async (config, { configType }) => {
+  addons: ['@storybook/addon-viewport/register', '@storybook/addon-a11y/register'],
+  webpackFinal: async (config, {configType}) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.

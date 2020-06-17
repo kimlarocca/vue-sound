@@ -6,6 +6,12 @@ $sizes: (
         --double:   calc(var(--space-3) * 2),
         --triple:   calc(var(--space-3) * 3),
         --quad:     calc(var(--space-3) * 4),
+        --quin:     calc(var(--space-3) * 5),
+        --hex:     calc(var(--space-3) * 6),
+        --sept:     calc(var(--space-3) * 7),
+        --oct:     calc(var(--space-3) * 8),
+        --non:     calc(var(--space-3) * 9),
+        --dec:     calc(var(--space-3) * 10),
         --zero:     0rem
 );
 

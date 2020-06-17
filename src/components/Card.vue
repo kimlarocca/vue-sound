@@ -35,7 +35,7 @@
       description: String,
       cta: {
         type: String,
-        default: 'learn more'
+        default: 'Learn More'
       },
       link: String,
       hasTextLink: {

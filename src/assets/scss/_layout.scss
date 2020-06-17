@@ -1,9 +1,9 @@
 .l-container {
   width: calc(100% - 2rem);
+  margin: auto;
 
   @media all and (min-width: $medium) {
     max-width: var(--max-width);
-    margin: auto;
   }
 }
 

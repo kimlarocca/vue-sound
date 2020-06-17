@@ -1,8 +1,21 @@
+import VSpacer from '../src/components/VSpacer'
+import ContentBlade from "../src/components/ContentCard"
+
 export default {
   title: 'Foundations'
 }
 
-export const Typography = () => ({
+export const Intro = () => ({
+  template: `
+    <div class="sbdocs-large-container">
+      <h1 class="u-space--double--bottom">vuEvolve</h1>
+      <h3 class="u-space--double--bottom">Built with Storybook and Vue</h3>
+      <p class="u-space--bottom">A Design System is the single source of truth which groups all the elements that will allow the teams to design, realize and develop a product. Feel free to explore all of the materials you find here.</p>
+    </div>
+  `
+})
+
+export const Fonts = () => ({
   template: `
     <div class="sbdocs-large-container">
       <h1 class="u-space--bottom">H1 Headline No. 1</h1>
@@ -26,14 +39,48 @@ export const Typography = () => ({
 export const Colors = () => ({
   template: `
     <div class="sbdocs-large-container">
-        <div class="colors">
-          <div class="u-background-color--primary"><span>primary</span></div>
-          <div class="u-background-color--secondary"><span>secondary</span></div>
-          <div class="u-background-color--gray--light"><span>light gray</span></div>
-          <div class="u-background-color--gray"><span>gray</span></div>
-          <div class="u-background-color--gray--dark"><span>dark gray</span></div>
-          <div class="u-background-color--black"><span>black</span></div>
-        </div>
+      <div class="colors">
+        <div class="u-background-color--primary"><span>primary</span></div>
+        <div class="u-background-color--secondary"><span>secondary</span></div>
+        <div class="u-background-color--tertiary"><span>tertiary</span></div>
+        <div class="u-background-color--quaternary"><span>quaternary</span></div>
+        <div class="u-background-color--quinary"><span>quinary</span></div>
+        <div class="u-background-color--gray--light"><span>light gray</span></div>
+        <div class="u-background-color--gray"><span>gray</span></div>
+        <div class="u-background-color--gray--dark"><span>dark gray</span></div>
+        <div class="u-background-color--black"><span>black</span></div>
+        <div class="u-background-color--white"><span>white</span></div>
+      </div>
+    </div>
+  `
+})
+
+export const Spacing = () => ({
+  components: {VSpacer},
+  template: `
+    <div class="sbdocs-large-container">
+      <p class="u-space--bottom">Half:</p>
+      <v-spacer size="half" class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Default:</p>
+      <v-spacer class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Double:</p>
+      <v-spacer size="double" class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Triple:</p>
+      <v-spacer size="triple" class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Quad:</p>
+      <v-spacer size="quad" class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Quin:</p>
+      <v-spacer size="quad" class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Hex:</p>
+      <v-spacer size="hex" class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Sept:</p>
+      <v-spacer size="sept" class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Oct:</p>
+      <v-spacer size="oct" class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Non:</p>
+      <v-spacer size="non" class="u-background-color--gray--light"/>
+      <p class="u-space--top u-space--bottom">Dec:</p>
+      <v-spacer size="dec" class="u-background-color--gray--light"/>
     </div>
   `
 })

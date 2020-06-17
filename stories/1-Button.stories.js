@@ -1,7 +1,8 @@
 import VButton from '../src/components/VButton'
 
 export default {
-  title: 'Button'
+  title: 'Button',
+  component: VButton
 }
 
 export const Standard = () => ({
