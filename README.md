@@ -21,6 +21,11 @@ npm run serve
 npm run build
 ```
 
+### Storybook
+```
+npm run storybook
+```
+
 ### Lints and fixes files
 ```
 npm run lint

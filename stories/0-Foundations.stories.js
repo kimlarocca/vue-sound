@@ -8,9 +8,8 @@ export default {
 export const Intro = () => ({
   template: `
     <div class="sbdocs-large-container">
-      <h1 class="u-space--double--bottom">vuEvolve</h1>
+      <h1 class="u-space--double--bottom">New Sounds</h1>
       <h3 class="u-space--double--bottom">Built with Storybook and Vue</h3>
-      <p class="u-space--bottom">A Design System is the single source of truth which groups all the elements that will allow the teams to design, realize and develop a product. Feel free to explore all of the materials you find here.</p>
     </div>
   `
 })
