@@ -1,6 +1,12 @@
-# vuEvolve, a design system built with storybook and vue js
+# new sounds web client - built with Vue.js
 
 ## Project setup
+If vue isn’t installed, run 
+```
+npm install -g @vue/cli
+```
+
+Then
 ```
 npm install
 ```
