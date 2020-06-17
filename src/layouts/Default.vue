@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-header/>
+    <v-spacer size="triple"/>
     <main>
       <slot/>
     </main>
@@ -9,9 +10,10 @@
 
 <script>
   import VHeader from '../components/VHeader'
+  import VSpacer from '../components/VSpacer'
 
   export default {
     name: 'Default',
-    components: { VHeader }
+    components: { VHeader, VSpacer }
   }
 </script>

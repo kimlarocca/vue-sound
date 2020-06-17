@@ -10,12 +10,11 @@
   import VHeader from './components/VHeader'
 
   // layouts
-  import Blank from './layouts/Blank'
   import Default from './layouts/Default'
   const defaultLayout = 'default'
 
   export default {
-    components: { VHeader, Blank, Default },
+    components: { VHeader, Default },
     computed: {
       layout () {
         return (this.$route.meta.layout || defaultLayout + '-layout')

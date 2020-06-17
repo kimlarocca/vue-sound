@@ -4,11 +4,9 @@ import router from './router'
 
 import './assets/scss/main.scss'
 
+// layouts
 import Default from './layouts/Default'
-import Blank from './layouts/Blank'
-
 Vue.component('default-layout', Default)
-Vue.component('blank-layout', Blank)
 
 Vue.config.productionTip = false
 

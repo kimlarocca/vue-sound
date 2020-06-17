@@ -1,6 +1,5 @@
 {
-  "name": "vue-evolve",
-  "version": "0.0.2",
+  "name": "new-sounds-web-client-vue",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -38,26 +37,5 @@
     "react-is": "^16.13.1",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
-  },
-  "description": "A design system built with Storybook and Vue.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kimlarocca/vue-design-system.git"
-  },
-  "keywords": [
-    "vue",
-    "design",
-    "system",
-    "vuejs",
-    "component",
-    "library",
-    "ui",
-    "library"
-  ],
-  "author": "Kim LaRocca",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kimlarocca/vue-evolve/issues"
-  },
-  "homepage": "https://github.com/kimlarocca/vue-evolve#readme"
+  }
 }

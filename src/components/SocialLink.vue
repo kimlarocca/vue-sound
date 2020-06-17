@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a :href="link" :aria-label="label">
+    <a :href="link" target="_blank" :aria-label="label">
       <i :class="icon"/>
     </a>
   </li>

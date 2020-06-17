@@ -3,17 +3,17 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-dark-gray: #333333;
-  --color-gray: #afafaf;
-  --color-light-gray: #f3f3f3;
-  --color-primary: #fce21b;
-  --color-secondary: #4a44f2;
-  --color-tertiary: #00ffc4;
-  --color-quaternary: #fc6a1b;
-  --color-quinary: #f244e1;
+  --color-gray: #777777;
+  --color-light-gray: #d1d3d4;
+  --color-primary: #f25ced;
+  --color-secondary: #189fc4;
+  --color-tertiary: #17b77f;
+  --color-quaternary: #106d85;
+  --color-quinary: #cc4ec8;
 
   // Fonts
-  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Rock+Salt&display=swap");
-  --font-family-secondary: "Rock Salt", sans-serif;
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+  --font-family-secondary: "Roboto", sans-serif;
   --font-family-primary: "Roboto", sans-serif;
   --font-family-fa: "Font Awesome 5 Free", serif;
 
@@ -142,14 +142,14 @@
   --color-text: var(--color-black);
   --color-background: var(--color-white);
   --font-family: var(--font-family-primary);
-  --color-hr: var(--color-gray);
+  --color-hr: var(--color-light-gray);
   --hr-height: 1px;
 
   // Links
   --color-link: var(--color-secondary);
   --link-decoration: none;
-  --color-link-hover: var(--color-black);
-  --link-decoration-hover: none;
+  --color-link-hover: var(--color-secondary);
+  --link-decoration-hover: underline;
 
   // Forms
   --forms-input-width: 100%;
@@ -164,16 +164,17 @@
   --forms-inline-button-padding: 0 1rem;
 
   // Buttons
-  --button-background: var(--color-black);
+  --button-background: var(--color-primary);
   --button-text: var(--color-white);
-  --button-border: 2px solid var(--color-black);
-  --button-background-hover: var(--color-white);
-  --button-text-hover: var(--color-black);
-  --button-border-hover: 2px solid var(--color-black);
-  --button-font-size: var(--font-size-3);
+  --button-border: none;
+  --button-background-hover: var(--color-quinary);
+  --button-text-hover: var(--color-white);
+  --button-border-hover: none;
+  --button-font-size: var(--font-size-4);
   --button-font-weight: 700;
   --button-text-transform: uppercase;
-  --button-padding: var(--space-3) var(--space-6);
+  --button-padding: var(--space-2) var(--space-4);
+  --button-border-radius: 5px;
 
   // Breadcrumbs
   --breadcrumbs-text: var(--color-text);
@@ -189,7 +190,7 @@
   --card-color-link: var(--color-secondary);
 
   // Icons
-  --icon-color: var(--color-black);
+  --icon-color: var(--color-gray);
   --icon-background-color: transparent;
   --icon-color-hover: var(--color-secondary);
   --icon-background-color-hover: transparent;

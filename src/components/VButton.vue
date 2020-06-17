@@ -32,6 +32,7 @@
     font-size: var(--button-font-size);
     padding: var(--button-padding);
     transition: var(--transition);
+    border-radius: var(--button-border-radius);
 
     &:hover {
       background: var(--button-background-hover);

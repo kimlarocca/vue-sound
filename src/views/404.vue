@@ -1,5 +1,5 @@
 <template>
-  <main class="about">
-    <h1>404 not found</h1>
+  <main class="notfound l-container">
+    <h1>404</h1>
   </main>
 </template>
