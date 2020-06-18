@@ -25,6 +25,6 @@
 <style lang="scss" scoped>
   .search {
     position: relative;
-    top: 2px;
+    top: 3px;
   }
 </style>
