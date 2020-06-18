@@ -1,5 +1,5 @@
 .l-container {
-  width: calc(100% - 2rem);
+  width: calc(100% - 1rem);
   margin: auto;
 
   @media all and (min-width: $medium) {
@@ -67,9 +67,21 @@
   grid-template-columns: 3fr 1fr;
 }
 
+.l-grid--3up--medium {
+  @media all and (max-width: $large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .l-grid--1up--small {
   @media all and (max-width: $medium) {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.l-grid--2up--small {
+  @media all and (max-width: $medium) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

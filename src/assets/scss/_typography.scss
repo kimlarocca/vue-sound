@@ -1,5 +1,3 @@
-// Headers
-
 @mixin typeface($type, $size) {
   font-family: var(--font-family-#{$type});
   letter-spacing: var(--letter-spacing-#{$type});
@@ -50,6 +48,12 @@
   text-align: right;
 }
 
+.u-align--center--s {
+  @media all and (max-width: $medium) {
+    text-align: center;
+  }
+}
+
 // Text Decorations
 
 .u-text-decoration--none {
@@ -58,4 +62,31 @@
 
 .u-text-decoration--underline {
   text-decoration: underline;
+}
+
+// Lists
+
+.u-plain-horizontal-list {
+  list-style: none;
+}
+
+.u-plain-horizontal-list li {
+  display: inline-block;
+  margin-right: var(--space-3);
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.u-plain-vertical-list {
+  list-style: none;
+}
+
+.u-plain-vertical-list li {
+  margin-bottom: var(--space-1);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }

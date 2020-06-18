@@ -1,6 +1,6 @@
 <template>
 
-  <div class="card">
+  <div class="basic-card">
     <div v-if="hasTitle" class="title u-padding">{{ title }}</div>
     <a v-if="hasLink" :href="link" :aria-label="title"></a>
     <img v-if="hasImage" :src="image" :alt="altText"/>
@@ -22,7 +22,7 @@
   import MediaBlock from './MediaBlock'
 
   export default {
-    name: 'Card',
+    name: 'BasicCard',
     components: {
       'media-block': MediaBlock
     },
@@ -63,7 +63,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .card {
+  .basic-card {
     width: 100%;
     height: 100%;
     opacity: 1;
@@ -75,26 +75,23 @@
       opacity: var(--opacity-on-hover);
       cursor: pointer;
     }
+  }
 
-    .title {
-      background: var(--card-header-background);
-      font-weight: 700;
-    }
+  .basic-card .title {
+    background: var(--card-header-background);
+    font-weight: 700;
+  }
 
-    img {
-      top: 0;
-      left: 0;
-    }
+  .basic-card img {
+    top: 0;
+    left: 0;
+  }
 
-    .content {
+  .basic-card .content .subtitle {
+    font-weight: 700;
+  }
 
-      .subtitle {
-        font-weight: 700;
-      }
-
-      .cta {
-        color: var(--card-color-link);
-      }
-    }
+  .basic-card .content .subtitle .cta {
+    color: var(--card-color-link);
   }
 </style>

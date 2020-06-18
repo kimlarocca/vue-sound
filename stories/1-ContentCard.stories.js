@@ -14,7 +14,7 @@ export const MediaOnLeft = () => ({
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         image="./assets/Placeholder-Image-4_3.png"
-        altText="alt text"
+        alt-text="alt text"
       >
         <template slot="content">
           <p>
@@ -66,7 +66,7 @@ export const MiddleAlignment = () => ({
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         image="./assets/Placeholder-Image-4_3.png"
-        altText="alt text"
+        alt-text="alt text"
         verticalAlignment="middle"
       >
         <template slot="content">
@@ -93,6 +93,7 @@ export const TwoThirdsLayout = () => ({
         link="http://www.google.com"
         cta="check this out"
         image="./assets/Placeholder-Image-4_3.png"
+        alt-text="alt text"
         layout="2x3"
       >
         <template slot="content">
@@ -118,6 +119,7 @@ export const TwoThirdsWithMediaOnRight = () => ({
         link="http://www.google.com"
         cta="check this out"
         image="./assets/Placeholder-Image-4_3.png"
+        alt-text="alt text"
         layout="2x3"
         alignment="right"
       >
@@ -144,6 +146,7 @@ export const OneQuarterLayout = () => ({
         link="http://www.google.com"
         cta="check this out"
         image="./assets/Placeholder-Image-4_3.png"
+        alt-text="alt text"
         layout="1x4"
       >
         <template slot="content">
@@ -169,6 +172,7 @@ export const OneQuarterWithMediaOnRight = () => ({
         link="http://www.google.com"
         cta="check this out"
         image="./assets/Placeholder-Image-4_3.png"
+        alt-text="alt text"
         layout="1x4"
         alignment="right"
       >

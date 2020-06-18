@@ -1,5 +1,5 @@
 import VSpacer from '../src/components/VSpacer'
-import ContentBlade from "../src/components/ContentCard"
+import VButton from "../src/components/VButton"
 
 export default {
   title: 'Foundations'
@@ -30,6 +30,8 @@ export const Fonts = () => ({
           ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
           velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.</p>
+
+       <p class="small-text u-space--bottom">This is small paragraph text!</p>
         <p><a>This is an inline link</a></p>
     </div>
   `
@@ -55,7 +57,7 @@ export const Colors = () => ({
 })
 
 export const Spacing = () => ({
-  components: {VSpacer},
+  components: { VSpacer },
   template: `
     <div class="sbdocs-large-container">
       <p class="u-space--bottom">Half:</p>
@@ -146,15 +148,15 @@ export const Grid = () => ({
       </div>
       <h3 class="u-space--bottom">Vertical Alignment:</h3>
       <div class="l-grid l-grid--1x4 l-grid--top u-space--bottom">
-        <div><img src="https://via.placeholder.com/300x300?text=1:1" alt="placeholder image"/></div>
+        <div><img src="./assets/Placeholder-Image-4_3.png" alt="placeholder image"/></div>
         <div class="u-background-color--gray--light u-padding--half u-align--center">top</div>
       </div>
       <div class="l-grid l-grid--1x4 l-grid--middle u-space--bottom">
-        <div><img src="https://via.placeholder.com/300x300?text=1:1" alt="placeholder image"/></div>
+        <div><img src="./assets/Placeholder-Image-4_3.png" alt="placeholder image"/></div>
         <div class="u-background-color--gray--light u-padding--half u-align--center">middle</div>
       </div>
       <div class="l-grid l-grid--1x4 l-grid--bottom u-space--bottom">
-        <div><img src="https://via.placeholder.com/300x300?text=1:1" alt="placeholder image"/></div>
+        <div><img src="./assets/Placeholder-Image-4_3.png" alt="placeholder image"/></div>
         <div class="u-background-color--gray--light u-padding--half u-align--center">bottom</div>
       </div>
     </div>
@@ -162,57 +164,56 @@ export const Grid = () => ({
 })
 
 export const Forms = () => ({
+  components: { VButton },
   template: `
     <div class="sbdocs-small-container">
       <label class="u-space--bottom">Text Input
-          <input type="text" placeholder="here is some placeholder text">
+        <input type="text" placeholder="here is some placeholder text">
       </label>
       <label class="u-space--bottom">
-          Number Input
-          <input type="number" value="100">
+        Number Input
+        <input type="number" value="100">
       </label>
       <label class="u-space--bottom">Password Input
-          <input type="password" aria-describedby="passwordHelpText" placeholder="password">
+        <input type="password" aria-describedby="passwordHelpText" placeholder="password">
       </label>
       <label class="u-space--bottom">Text Area
-          <textarea placeholder="placeholder text"/>
+        <textarea placeholder="placeholder text"/>
       </label>
       <p>Inline Buttons</p>
       <div class="input-group u-space--bottom">
-          <label for="inline-input" class="hide-ally-element">Label</label>
-          <input id="inline-input" class="input-group-field" type="number">
-          <div class="input-group-button">
-              <input type="submit" class="button" value="Go">
-          </div>
+        <label for="inline-input" class="hide-ally-element">Label</label>
+        <input id="inline-input" class="input-group-field" type="number">
+        <v-button type="submit" class="inline-button">Subscribe&nbsp;Now</v-button>
       </div>
       <label class="u-space--bottom">Single Select Menu
         <select>
-            <option value="starbuck">Starbuck</option>
-            <option value="husker">Husker</option>
-            <option value="hotdog">Hot Dog</option>
-            <option value="apollo">Apollo</option>
+          <option value="starbuck">Starbuck</option>
+          <option value="husker">Husker</option>
+          <option value="hotdog">Hot Dog</option>
+          <option value="apollo">Apollo</option>
         </select>
       </label>
       <label class="u-space--bottom">Multiple Select Menu
         <select multiple>
-            <option value="showboat">Showboat</option>
-            <option value="redwing">Redwing</option>
-            <option value="narcho">Narcho</option>
-            <option value="hardball">Hardball</option>
+          <option value="showboat">Showboat</option>
+          <option value="redwing">Redwing</option>
+          <option value="narcho">Narcho</option>
+          <option value="hardball">Hardball</option>
         </select>
       </label>
       <fieldset class="u-space--bottom">
-          <legend>Radio Buttons</legend>
-          <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed">Red</label>
-          <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label
-              for="pokemonBlue">Blue</label>
-          <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
+        <legend>Radio Buttons</legend>
+        <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed">Red</label>
+        <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label
+        for="pokemonBlue">Blue</label>
+        <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
       </fieldset>
       <fieldset class="u-space--bottom">
-          <legend>Checkboxes</legend>
-          <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-          <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-          <input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox 3</label>
+        <legend>Checkboxes</legend>
+        <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+        <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+        <input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox 3</label>
       </fieldset>
     </div>
   `

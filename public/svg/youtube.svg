@@ -1,0 +1,13 @@
+<svg width="32px" height="32px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17.63 12.09">
+    <defs>
+        <linearGradient id="linear-gradient" x1="8.81" y1="0.08" x2="8.81" y2="11.08" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#e42919"></stop>
+            <stop offset="1" stop-color="#c21311"></stop>
+        </linearGradient>
+    </defs>
+    <g data-name="Layer 2">
+        <g data-name="Layer 1">
+            <path d="M17.63,7.89a4.21,4.21,0,0,1-4.2,4.2H4.2A4.21,4.21,0,0,1,0,7.89V4.2A4.21,4.21,0,0,1,4.2,0h9.23a4.21,4.21,0,0,1,4.2,4.2ZM7,8.21l4.76-2.47L7,3.25Z" style="fill:url(#linear-gradient)"></path>
+        </g>
+    </g>
+</svg>

@@ -12,9 +12,8 @@
   --color-quinary: #cc4ec8;
 
   // Fonts
-  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
-  --font-family-secondary: "Roboto", sans-serif;
-  --font-family-primary: "Roboto", sans-serif;
+  @import url("https://use.typekit.net/mwg2nux.css");
+  --font-family-primary: "sofia-pro", Arial, sans-serif;
   --font-family-fa: "Font Awesome 5 Free", serif;
 
   // Font Levers
@@ -58,50 +57,73 @@
 
   // Typography (based on modular scale set above)
 
-  h1 {
-    @include typeface(secondary, 9);
+  h1,
+  .like-h1 {
+    @include typeface(header, 12);
     @media all and (min-width: $medium) {
-      @include typeface(secondary, 11);
+      @include typeface(header, 14);
     }
     @media all and (min-width: $large) {
-      @include typeface(secondary, 16);
+      @include typeface(header, 16);
     }
   }
 
   h2 {
-    @include typeface(primary, 9);
+    @include typeface(header, 9);
     @media all and (min-width: $medium) {
-      @include typeface(primary, 14);
+      @include typeface(header, 11);
     }
+    @media all and (min-width: $large) {
+      @include typeface(header, 12);
+    }
+    text-transform: uppercase;
   }
 
   h3 {
-    @include typeface(primary, 8);
+    @include typeface(header, 8);
     @media all and (min-width: $large) {
-      @include typeface(primary, 11);
+      @include typeface(header, 11);
     }
   }
 
   h4 {
-    @include typeface(primary, 6);
+    @include typeface(header, 6);
     @media all and (min-width: $medium) {
-      @include typeface(heaprimaryder, 8);
+      @include typeface(header, 8);
     }
   }
 
   h5 {
-    @include typeface(primary, 5);
+    @include typeface(header, 5);
     @media all and (min-width: $medium) {
-      @include typeface(primary, 6);
+      @include typeface(header, 6);
     }
     text-transform: uppercase;
   }
 
   h6 {
-    @include typeface(primary, 5);
+    @include typeface(header, 5);
     @media all and (min-width: $medium) {
-      @include typeface(primary, 6);
+      @include typeface(header, 6);
     }
+  }
+
+  p,
+  li {
+    @include typeface(normal, 5);
+    font-weight: var(--font-weight);
+    @media all and (min-width: $medium) {
+      @include typeface(normal, 6);
+      font-weight: var(--font-weight);
+    }
+  }
+
+  div {
+    font-weight: var(--font-weight);
+  }
+
+  .small-text {
+    @include typeface(normal, 3);
   }
 
   // Spacing
@@ -132,7 +154,7 @@
   // Layout
   --max-width: 1240px;
   --grid-gutter: 18px;
-  --grid-gutter-large: 72px;
+  --grid-gutter-large: 54px;
 
   // Animation
   --transition: .3s ease-out;
@@ -142,26 +164,16 @@
   --color-text: var(--color-black);
   --color-background: var(--color-white);
   --font-family: var(--font-family-primary);
+  --font-weight: 300;
+  --font-weight-header: 500;
   --color-hr: var(--color-light-gray);
   --hr-height: 1px;
 
   // Links
   --color-link: var(--color-secondary);
   --link-decoration: none;
-  --color-link-hover: var(--color-secondary);
+  --color-link-hover: var(--color-quaternary);
   --link-decoration-hover: underline;
-
-  // Forms
-  --forms-input-width: 100%;
-  --forms-input-height: 3rem;
-  --forms-text-area-height: 100px;
-  --forms-input-padding: var(--space-1) var(--space-2);
-  --forms-input-font-family: var(--font-family);
-  --forms-input-font-size: var(--font-base);
-  --forms-input-color: var(--color-text);
-  --forms-input-border: 1px solid var(--color-gray);
-  --forms-input-outline-color: 1px solid var(--color-secondary);
-  --forms-inline-button-padding: 0 1rem;
 
   // Buttons
   --button-background: var(--color-primary);
@@ -171,10 +183,22 @@
   --button-text-hover: var(--color-white);
   --button-border-hover: none;
   --button-font-size: var(--font-size-4);
-  --button-font-weight: 700;
+  --button-font-weight: 500;
   --button-text-transform: uppercase;
-  --button-padding: var(--space-2) var(--space-4);
+  --button-padding: var(--space-1) var(--space-3);
   --button-border-radius: 5px;
+
+  // Forms
+  --forms-input-width: 100%;
+  --forms-input-height: 2.5rem;
+  --forms-text-area-height: 100px;
+  --forms-input-padding: var(--space-1) var(--space-2);
+  --forms-input-font-family: var(--font-family);
+  --forms-input-font-size: var(--font-base);
+  --forms-input-color: var(--color-text);
+  --forms-input-border: 1px solid var(--color-gray);
+  --forms-input-outline-color: 1px solid var(--color-secondary);
+  --forms-inline-button-padding: 0 var(--space-3);
 
   // Breadcrumbs
   --breadcrumbs-text: var(--color-text);
@@ -190,10 +214,6 @@
   --card-color-link: var(--color-secondary);
 
   // Icons
-  --icon-color: var(--color-gray);
-  --icon-background-color: transparent;
-  --icon-color-hover: var(--color-secondary);
-  --icon-background-color-hover: transparent;
   --icon-size: 1rem;
 
   // Image With Caption

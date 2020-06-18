@@ -11,7 +11,8 @@
         <div v-if="hasSlot" class="u-space--bottom"></div>
         <slot></slot>
         <div v-if="hasSlot" class="u-space--bottom"></div>
-        <p v-if="hasCta && hasLink && !hasTextLink" class="u-space--top"><a :href="link" class="button">{{ cta }}</a></p>
+        <p v-if="hasCta && hasLink && !hasTextLink" class="u-space--top"><a :href="link" class="button">{{ cta }}</a>
+        </p>
         <p v-if="hasCta && hasLink && hasTextLink" class="u-space--top"><a :href="link">{{ cta }}</a></p>
       </div>
     </div>
@@ -64,13 +65,11 @@
 </script>
 
 <style lang="scss" scoped>
-  .biography-card {
-    .name {
-      font-weight: 700;
-    }
+  .biography-card .name {
+    font-weight: 700;
+  }
 
-    .title {
-      font-style: italic;
-    }
+  .biography-card .title {
+    font-style: italic;
   }
 </style>

@@ -1,44 +1,20 @@
-import SocialLink from '../src/components/SocialLink'
+import IconLink from '../src/components/IconLink'
 
 export default {
-  title: 'Social Link',
-  component: SocialLink
+  title: 'Icon Link',
+  component: IconLink
 }
 
 export const All = () => ({
-  components: { SocialLink },
+  components: { IconLink },
   template: `
     <div class="sbdocs-large-container">
-      <ul class="social-links">
-        <social-link
-          icon="fab fa-facebook-f"
-          link="https://www.facebook.com"
-          label="facebook">
-        </social-link>
-        <social-link
-          icon="fab fa-twitter"
-          link="https://www.twitter.com"
-          label="twitter"
-        >
-        </social-link>
-        <social-link
-          icon="fab fa-youtube"
-          link="https://www.youtube.com"
-          label="youtube"
-        >
-        </social-link>
-        <social-link
-          icon="fab fa-instagram"
-          link="https://www.instagram.com"
-          label="instagram"
-        >
-        </social-link>
-        <social-link
-          icon="fab fa-linkedin-in"
-          link="https://www.linkedin.com"
-          label="linkedin"
-        >
-        </social-link>
+      <ul class="icon-links">
+        <icon-link
+          icon="./assets/spotify.svg"
+          link="https://www.spotify.com"
+          alt-text="spotify"
+        />
       </ul>
     </div>
   `

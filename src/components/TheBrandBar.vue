@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable -->
-  <div class="brand-bar">
+  <section class="brand-bar">
     <div class="nypr-brand-header__logo-list">
       <svg viewBox="0 0 144 58" version="1.1" xmlns="http://www.w3.org/2000/svg"
            xmlns:xlink="http://www.w3.org/1999/xlink" class="nypr-brand-header__nypr-logo">
@@ -410,7 +410,7 @@
               transform="rotate(-180 8 38)"></path>
       </svg>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -1,17 +1,15 @@
 <template>
-
   <div class="image-with-caption">
     <a v-if="hasLink" :href="link" :aria-label="caption"></a>
     <img :src="image" :alt="altText">
     <div v-if="hasCaption" class="caption">{{caption}}</div>
     <div v-if="hasGradient" class="black-gradient-overlay"></div>
   </div>
-
 </template>
 
 <script>
   export default {
-    name: 'PhotoWithCaption',
+    name: 'ImageWithCaption',
     props: {
       image: String,
       altText: String,
@@ -36,30 +34,30 @@
   .image-with-caption {
     position: relative;
     display: inline-block;
-
-    a,
-    a:visited,
-    a:active {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: transparent;
-    }
-
-    .caption {
-      position: absolute;
-      color: var(--image-with-caption-text);
-      z-index: 2;
-      right: 1rem;
-      bottom: 1rem;
-    }
   }
 
-  .black-gradient-overlay {
+  .image-with-caption a,
+  .image-with-caption a:visited,
+  .image-with-caption a:active {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+  }
+
+  .image-with-caption .caption {
+    position: absolute;
+    color: var(--image-with-caption-text);
+    z-index: 2;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .image-with-caption .black-gradient-overlay {
     background: var(--image-with-caption-gradient);
     position: absolute;
     height: 100px;

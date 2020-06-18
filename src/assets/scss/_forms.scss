@@ -1,7 +1,7 @@
 .form-element-styles {
   font-family: var(--forms-input-font-family);
   font-size: var(--forms-input-font-size);
-  font-weight: normal;
+  font-weight: var(--font-weight);
   line-height: calc(var(--forms-input-height) / 2);
   color: var(--forms-input-color);
   max-width: 100%;
@@ -33,12 +33,18 @@ select {
 label {
   display: block;
   clear: both;
+  font-weight: var(--font-weight);
+}
+
+legend {
+  font-weight: var(--font-weight);
 }
 
 fieldset {
   margin: 0;
   padding: 0;
   border: 0;
+  font-weight: var(--font-weight);
 }
 
 [type=checkbox] + label,
@@ -62,25 +68,16 @@ textarea {
   }
 }
 
-select {
-  option {
-    @extend .form-element-styles;
-  }
+select option {
+  @extend .form-element-styles;
 }
 
 select[multiple] {
   height: auto;
 }
 
-// inline buttons
 .input-group {
   display: flex;
   width: 100%;
   align-items: stretch;
-
-  .button {
-    height: var(--forms-input-height);
-    line-height: var(--forms-input-height);
-    padding: var(--forms-inline-button-padding);
-  }
 }

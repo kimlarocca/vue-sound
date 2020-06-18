@@ -1,5 +1,5 @@
 <template>
-  <div class="v-spacer" :class="spacingClass"></div>
+  <div class="v-spacer" :class="spacingClass"/>
 </template>
 
 <script>

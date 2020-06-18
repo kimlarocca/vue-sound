@@ -1,41 +1,39 @@
-import Card from '../src/components/Card'
+import BasicCard from '../src/components/BasicCard'
 
 export default {
-  title: 'Card',
-  component: Card
+  title: 'Basic Card',
+  component: BasicCard
 }
 
 export const WithAnImage = () => ({
-  components: { Card },
+  components: { BasicCard },
   template: `
     <div class="sbdocs-small-container">
-      <card
+      <basic-card
         title="Title"
         image="./assets/Placeholder-Image-4_3.png"
-        altText="alternative text"
+        alt-text="alternative text"
         subdescription="subtitle"
-        :hasTextLink="true"
+        :has-text-link="true"
         description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae consectetur corporis dicta magnam, molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem? Enim facilis ipsum odio praesentium quis."
-      >
-      </card>
+      />
     </div>
   `
 })
 
 export const WithAVideo = () => ({
-  components: { Card },
+  components: { BasicCard },
   template: `
     <div class="sbdocs-small-container">
-      <card
+      <basic-card
         title="Title"
         video="https://player.vimeo.com/video/90283590"
-        altText="alternative text"
+        alt-text="alternative text"
         subdescription="subtitle"
-        :hasTextLink="true"
+        :has-text-link="true"
         cta="Click Here"
         description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae consectetur corporis dicta magnam, molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem? Enim facilis ipsum odio praesentium quis."
-      >
-      </card>
+      />
     </div>
   `
 })

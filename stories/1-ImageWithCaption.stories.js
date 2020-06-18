@@ -11,11 +11,10 @@ export const WithGradient = () => ({
     <div class="sbdocs-small-container">
       <image-with-caption
         image="./assets/Placeholder-Image-4_3.png"
-        altText="lorem ipsum dolor"
+        alt-text="alt text"
         caption="by john doe"
         link="http://www.bing.com"
-      >
-      </image-with-caption>
+      />
     </div>
 `
 })
@@ -26,12 +25,11 @@ export const WithoutGradient = () => ({
     <div class="sbdocs-small-container">
       <image-with-caption
         image="./assets/Placeholder-Image-4_3.png"
-        altText="lorem ipsum dolor"
+        alt-text="alt text"
         caption="by john doe"
         link="http://www.bing.com"
         :hasGradient="false"
-      >
-      </image-with-caption>
+      />
     </div>
 `
 })
