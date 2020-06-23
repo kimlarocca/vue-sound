@@ -8,7 +8,10 @@
   export default {
     name: 'VButton',
     props: {
-      icon: String
+      icon: {
+        type: String,
+        default: null
+      }
     },
     computed: {
       hasIcon () {

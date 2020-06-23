@@ -4,33 +4,64 @@
       <div>
         <ul class="u-plain-horizontal-list">
           <li class="nav-item">
-            <router-link to="/shows" class="nav-link">Shows</router-link>
+            <router-link
+              to="/shows"
+              class="nav-link"
+            >
+              Shows
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/features" class="nav-link">Features</router-link>
+            <router-link
+              to="/features"
+              class="nav-link"
+            >
+              Features
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/livestream" class="nav-link">Playlist</router-link>
+            <router-link
+              to="/livestream"
+              class="nav-link"
+            >
+              Playlist
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/artists" class="nav-link">Artists</router-link>
+            <router-link
+              to="/artists"
+              class="nav-link"
+            >
+              Artists
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/about" class="nav-link">About</router-link>
+            <router-link
+              to="/about"
+              class="nav-link"
+            >
+              About
+            </router-link>
           </li>
         </ul>
       </div>
       <div class="u-align--right">
         <ul class="u-plain-horizontal-list">
           <li class="nav-item">
-            <router-link to="/search" class="nav-link">
-              <svg-search/>
+            <router-link
+              to="/search"
+              class="nav-link"
+            >
+              <search-svg />
             </router-link>
           </li>
           <li class="nav-item">
-            <a href="https://pledge3.wqxr.org/donate/q2/onestep/?ref=button-donate-header"
-               target="_blank"
-               class="nav-link gtm__click-title-tracking" data-action="Donate">Donate</a>
+            <a
+              href="https://pledge3.wqxr.org/donate/q2/onestep/?ref=button-donate-header"
+              target="_blank"
+              class="nav-link gtm__click-title-tracking"
+              data-action="Donate"
+            >Donate</a>
           </li>
         </ul>
       </div>
@@ -39,11 +70,11 @@
 </template>
 
 <script>
-  import SvgSearch from './svg/SvgSearch'
+  import SearchSvg from './svg/SearchSvg'
 
   export default {
     name: 'TheHeaderNav',
-    components: { SvgSearch }
+    components: { SearchSvg }
   }
 </script>
 

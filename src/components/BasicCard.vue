@@ -1,21 +1,41 @@
 <template>
-
   <div class="basic-card">
-    <div v-if="hasTitle" class="title u-padding">{{ title }}</div>
-    <a v-if="hasLink" :href="link" :aria-label="title"></a>
-    <img v-if="hasImage" :src="image" :alt="altText"/>
+    <div
+      v-if="hasTitle"
+      class="title u-padding"
+    >
+      {{ title }}
+    </div>
+    <a
+      v-if="hasLink"
+      :href="link"
+      :aria-label="title"
+    />
+    <img
+      v-if="hasImage"
+      :src="image"
+      :alt="altText"
+    >
     <div v-if="hasVideo">
-      <media-block :url="video"></media-block>
+      <media-block :url="video" />
     </div>
     <div class="content u-padding">
-      <div v-if="hasSubtitle" class="subtitle u-space--bottom">{{ subtitle }}</div>
-      <div class="description">{{ description }}</div>
+      <div
+        v-if="hasSubtitle"
+        class="subtitle u-space--bottom"
+      >
+        {{ subtitle }}
+      </div>
+      <div class="description">
+        {{ description }}
+      </div>
       <template v-if="hasTextLink">
-        <div class="cta u-space--top">{{ cta }}</div>
+        <div class="cta u-space--top">
+          {{ cta }}
+        </div>
       </template>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -27,18 +47,40 @@
       'media-block': MediaBlock
     },
     props: {
-      title: String,
-      video: String,
-      image: String,
-      altText: String,
-      subtitle: String,
-      description: String,
+      title: {
+        type: String,
+        default: null
+      },
+      video: {
+        type: String,
+        default: null
+      },
+      image: {
+        type: String,
+        default: null
+      },
+      altText: {
+        type: String,
+        default: null
+      },
+      subtitle: {
+        type: String,
+        default: null
+      },
+      description: {
+        type: String,
+        default: null
+      },
       cta: {
         type: String,
         default: 'Learn More'
       },
-      link: String,
+      link: {
+        type: String,
+        default: null
+      },
       hasTextLink: {
+        type: Boolean,
         default: false
       }
     },

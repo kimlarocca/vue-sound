@@ -1,12 +1,18 @@
 <template>
-  <div class="v-spacer" :class="spacingClass"/>
+  <div
+    class="v-spacer"
+    :class="spacingClass"
+  />
 </template>
 
 <script>
   export default {
     name: 'VSpacer',
     props: {
-      size: String
+      size: {
+        type: String,
+        default: null
+      }
     },
     computed: {
       spacingClass () {

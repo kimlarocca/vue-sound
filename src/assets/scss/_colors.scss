@@ -38,6 +38,11 @@
   color: var(--color-quinary);
 }
 
+.u-color--septary,
+.u-color--septary a {
+  color: var(--color-septary);
+}
+
 // Background Colors
 
 .u-background-color--none {
@@ -82,4 +87,8 @@
 
 .u-background-color--quinary {
   background-color: var(--color-quinary);
+}
+
+.u-background-color--septary {
+  background-color: var(--color-septary);
 }

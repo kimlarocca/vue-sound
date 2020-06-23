@@ -73,11 +73,8 @@ export const MiddleAlignment = () => ({
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae consectetur corporis
             dicta magnam,
-            molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem? Enim facilis
-            ipsum odio
-            praesentium quis.
+            molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem?
           </p>
-          <p><strong>LOREM IPSUM DOLOR SITE AMET</strong></p>
         </template>
       </content-card>
     </div>

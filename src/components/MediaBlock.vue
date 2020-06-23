@@ -1,6 +1,11 @@
 <template>
   <div class="responsive-embed">
-    <iframe width="1240" height="700" :src="url" allowfullscreen/>
+    <iframe
+      width="1240"
+      height="700"
+      :src="url"
+      allowfullscreen
+    />
   </div>
 </template>
 
@@ -8,7 +13,10 @@
   export default {
     name: 'MediaBlock',
     props: {
-      url: String
+      url: {
+        type: String,
+        default: null
+      }
     }
   }
 </script>

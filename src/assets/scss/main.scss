@@ -54,6 +54,15 @@ a:active {
   }
 }
 
+a svg {
+  opacity: 1;
+  transition: var(--transition);
+
+  &:hover {
+    opacity: var(--opacity-on-hover);
+  }
+}
+
 hr {
   border: 0;
   margin: 0;

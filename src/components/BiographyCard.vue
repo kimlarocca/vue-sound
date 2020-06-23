@@ -1,19 +1,61 @@
 <template>
-  <div class="biography-card" :class="layout">
-    <div class="l-grid" :class="{'l-grid--1x4 l-grid--1up--small': isHorizontal}">
+  <div
+    class="biography-card"
+    :class="layout"
+  >
+    <div
+      class="l-grid"
+      :class="{'l-grid--1x4 l-grid--1up--small': isHorizontal}"
+    >
       <div v-if="hasImage">
-        <img :src="image" :alt="altText"/>
+        <img
+          :src="image"
+          :alt="altText"
+        >
       </div>
       <div>
-        <div class="name"><a v-if="hasLink && hasName" :href="link">{{ name }}</a></div>
-        <div v-if="!hasLink && hasName" class="name">{{ name }}</div>
-        <div v-if="hasTitle" class="title">{{ title }}</div>
-        <div v-if="hasSlot" class="u-space--bottom"></div>
-        <slot></slot>
-        <div v-if="hasSlot" class="u-space--bottom"></div>
-        <p v-if="hasCta && hasLink && !hasTextLink" class="u-space--top"><a :href="link" class="button">{{ cta }}</a>
+        <div class="name">
+          <a
+            v-if="hasLink && hasName"
+            :href="link"
+          >{{ name }}</a>
+        </div>
+        <div
+          v-if="!hasLink && hasName"
+          class="name"
+        >
+          {{ name }}
+        </div>
+        <div
+          v-if="hasTitle"
+          class="title"
+        >
+          {{ title }}
+        </div>
+        <div
+          v-if="hasSlot"
+          class="u-space--bottom"
+        />
+        <slot />
+        <div
+          v-if="hasSlot"
+          class="u-space--bottom"
+        />
+        <p
+          v-if="hasCta && hasLink && !hasTextLink"
+          class="u-space--top"
+        >
+          <a
+            :href="link"
+            class="button"
+          >{{ cta }}</a>
         </p>
-        <p v-if="hasCta && hasLink && hasTextLink" class="u-space--top"><a :href="link">{{ cta }}</a></p>
+        <p
+          v-if="hasCta && hasLink && hasTextLink"
+          class="u-space--top"
+        >
+          <a :href="link">{{ cta }}</a>
+        </p>
       </div>
     </div>
   </div>
@@ -23,12 +65,30 @@
   export default {
     name: 'TeamMemberCard',
     props: {
-      name: String,
-      image: String,
-      altText: String,
-      title: String,
-      cta: String,
-      link: String,
+      name: {
+        type: String,
+        default: null
+      },
+      image: {
+        type: String,
+        default: null
+      },
+      altText: {
+        type: String,
+        default: null
+      },
+      title: {
+        type: String,
+        default: null
+      },
+      cta: {
+        type: String,
+        default: null
+      },
+      link: {
+        type: String,
+        default: null
+      },
       hasTextLink: {
         type: Boolean,
         default: false

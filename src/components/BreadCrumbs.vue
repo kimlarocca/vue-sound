@@ -1,8 +1,14 @@
 <template>
   <section class="bread-crumbs">
     <ul>
-      <li :key="index" v-for="(crumb, index) in crumbs">
-        <a v-if="hasLink(crumb)" :href="crumb.link">{{ crumb.name }}</a>
+      <li
+        v-for="(crumb, index) in crumbs"
+        :key="index"
+      >
+        <a
+          v-if="hasLink(crumb)"
+          :href="crumb.link"
+        >{{ crumb.name }}</a>
         <span v-else>{{ crumb.name }}</span>
       </li>
     </ul>
@@ -13,7 +19,10 @@
   export default {
     name: 'BreadCrumbs',
     props: {
-      crumbs: Array
+      crumbs: {
+        type: Array,
+        default: null
+      }
     },
     methods: {
       hasLink (crumb) {

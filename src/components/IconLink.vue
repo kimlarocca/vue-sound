@@ -1,7 +1,17 @@
 <template>
-  <li class="icon-link-item" :data-label="altText">
-    <a :href="link" target="_blank" class="icon-link">
-      <img :src="icon" alt="alt-text">
+  <li
+    class="icon-link-item"
+    :data-label="altText"
+  >
+    <a
+      :href="link"
+      target="_blank"
+      class="icon-link"
+    >
+      <img
+        :src="icon"
+        alt="alt-text"
+      >
     </a>
   </li>
 </template>
@@ -10,9 +20,18 @@
   export default {
     name: 'IconLink',
     props: {
-      icon: String,
-      link: String,
-      altText: String
+      icon: {
+        type: String,
+        default: null
+      },
+      link: {
+        type: String,
+        default: null
+      },
+      altText: {
+        type: String,
+        default: null
+      }
     }
   }
 </script>

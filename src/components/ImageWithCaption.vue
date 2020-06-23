@@ -1,9 +1,24 @@
 <template>
   <div class="image-with-caption">
-    <a v-if="hasLink" :href="link" :aria-label="caption"></a>
-    <img :src="image" :alt="altText">
-    <div v-if="hasCaption" class="caption">{{caption}}</div>
-    <div v-if="hasGradient" class="black-gradient-overlay"></div>
+    <a
+      v-if="hasLink"
+      :href="link"
+      :aria-label="caption"
+    />
+    <img
+      :src="image"
+      :alt="altText"
+    >
+    <div
+      v-if="hasCaption"
+      class="caption"
+    >
+      {{ caption }}
+    </div>
+    <div
+      v-if="hasGradient"
+      class="black-gradient-overlay"
+    />
   </div>
 </template>
 
@@ -11,11 +26,24 @@
   export default {
     name: 'ImageWithCaption',
     props: {
-      image: String,
-      altText: String,
-      caption: String,
-      link: String,
+      image: {
+        type: String,
+        default: null
+      },
+      altText: {
+        type: String,
+        default: null
+      },
+      caption: {
+        type: String,
+        default: null
+      },
+      link: {
+        type: String,
+        default: null
+      },
       hasGradient: {
+        type: Boolean,
         default: true
       }
     },

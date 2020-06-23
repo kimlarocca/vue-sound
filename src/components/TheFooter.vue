@@ -1,6 +1,8 @@
 <template>
   <footer class="l-container">
-    <h2 class="u-space--double--bottom">Our Sites</h2>
+    <h2 class="u-space--double--bottom">
+      Our Sites
+    </h2>
     <ul class="u-plain-horizontal-list u-space--double--bottom">
       <li>
         <a href="http://www.wqxr.org">WQXR</a>
