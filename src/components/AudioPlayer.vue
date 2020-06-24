@@ -1,57 +1,105 @@
 <template>
   <div class="player">
     <div class="player-controls">
-      <a @click="goBack15">
+      <a
+        v-if="showSkip && !livestream"
+        tabindex="0"
+        @click="goBack15"
+        @keypress.space.enter="goBack15"
+        class="u-display--flex"
+      >
         <back15-icon />
       </a>
-      <a @click="playing = !playing">
+      <a
+        tabindex="0"
+        @click="togglePlay"
+        @keypress.space.enter="togglePlay"
+        class="u-display--flex"
+      >
         <play-icon v-if="!playing" />
         <pause-icon v-if="playing" />
       </a>
-      <a @click="goAhead15">
+      <a
+        v-if="showSkip && !livestream"
+        tabindex="0"
+        @click="goAhead15"
+        @keypress.space.enter="goAhead15"
+        class="u-display--flex"
+      >
         <ahead15-icon />
       </a>
       <div class="player-track">
-        <p class="player-track-title">
-          {{ title }}
-        </p>
-        <div
-          class="player-track-progress"
-          @click="seek"
-        >
+        <div class="player-track-title">
+          <a v-if="hasTitle && hasTitleLink" :href="titleLink">{{ title }}</a>
+          <span v-if="hasTitle && !hasTitleLink">{{ title }}</span>
+          <span v-if="hasTitle && hasDetails"> - </span>
+          <span v-if="hasDetails && !hasDetailsLink" class="player-track-title-details">{{ details }}</span>
+          <a v-if="hasDetails && hasDetailsLink" :href="detailsLink" class="player-track-title-details">{{ details
+            }}</a>
+        </div>
+        <template v-if="livestream">
+          <div class="player-livestream">Live Now on New Sounds <a href="/livestream" class="player-livestream-link">Previously
+            Played</a></div>
+        </template>
+        <template v-else>
           <div
-            :style="{ width: percentComplete + '%' }"
-            class="player-track-seeker"
-          />
-        </div>
-        <div class="player-track-time">
-          <span class="player-track-time-current">{{ currentSeconds | convertTimeHHMMSS }}</span>
-          <span class="player-track-time-separator">/</span>
-          <span class="player-track-time-total">{{ durationSeconds | convertTimeHHMMSS }}</span>
-        </div>
+            class="player-track-progress"
+            @click="seek"
+          >
+            <div
+              :style="{ width: percentComplete + '%' }"
+              class="player-track-seeker"
+            />
+            <div
+              :style="{ width: percentBuffered + '%' }"
+              class="player-track-buffered"
+            />
+          </div>
+          <div class="player-track-time">
+            <span class="player-track-time-current">{{ currentSeconds | convertTimeHHMMSS }}</span>
+            <span class="player-track-time-separator">/</span>
+            <span class="player-track-time-total">{{ durationSeconds | convertTimeHHMMSS }}</span>
+          </div>
+        </template>
       </div>
       <a
         v-if="showDownload"
+        tabindex="0"
         @click="download"
+        @keypress.space.enter="download"
       >
         <download-icon />
       </a>
-      <input
-        v-model="volume"
-        type="range"
-        min="0"
-        max="100"
-      >
-      <a
+      <div
         class="player-volume"
         @mouseover.prevent="showVolume = true"
         @mouseleave.prevent="showVolume = false"
-        @click="mute"
       >
-        <volume-icon v-if="!muted" />
-        <volume-muted-icon v-if="muted" />
-      </a>
-      <!--      <input v-model="volume" :style="{visibility: showVolume ? 'visible' : 'hidden'}" type="range" min="0" max="100"/>-->
+        <label
+          for="playerVolume"
+          class="hide-ally-element"
+        >
+          audio player volume slider
+        </label>
+        <transition name="slide-left">
+          <input
+            v-show="showVolume"
+            id="playerVolume"
+            v-model="volume"
+            type="range"
+            min="0"
+            max="100"
+          >
+        </transition>
+        <a
+          tabindex="0"
+          @click="mute"
+          @keypress.space.enter="mute"
+        >
+          <volume-icon v-if="!muted" />
+          <volume-muted-icon v-if="muted" />
+        </a>
+      </div>
     </div>
     <audio
       ref="audioFile"
@@ -82,7 +130,15 @@
       }
     },
     props: {
-      title: {
+      autoPlay: {
+        type: Boolean,
+        default: false
+      },
+      details: {
+        type: String,
+        default: null
+      },
+      detailsLink: {
         type: String,
         default: null
       },
@@ -90,7 +146,7 @@
         type: String,
         default: null
       },
-      autoPlay: {
+      livestream: {
         type: Boolean,
         default: false
       },
@@ -101,6 +157,22 @@
       showDownload: {
         type: Boolean,
         default: false
+      },
+      showSkip: {
+        type: Boolean,
+        default: true
+      },
+      showTrack: {
+        type: Boolean,
+        default: true
+      },
+      title: {
+        type: String,
+        default: null
+      },
+      titleLink: {
+        type: String,
+        default: null
       }
     },
     data () {
@@ -108,6 +180,7 @@
         audio: undefined,
         currentSeconds: 0,
         durationSeconds: 0,
+        buffered: 0,
         innerLoop: false,
         loaded: false,
         playing: false,
@@ -117,8 +190,23 @@
       }
     },
     computed: {
+      hasDetails () {
+        return this.$props.details
+      },
+      hasDetailsLink () {
+        return this.$props.detailsLink
+      },
+      hasTitle () {
+        return this.$props.title
+      },
+      hasTitleLink () {
+        return this.$props.titleLink
+      },
       muted () {
         return this.volume / 100 === 0
+      },
+      percentBuffered () {
+        return (this.buffered / this.durationSeconds) * 100
       },
       percentComplete () {
         return (this.currentSeconds / this.durationSeconds) * 100
@@ -137,11 +225,17 @@
     },
     created () {
       this.innerLoop = this.loop
+      window.addEventListener('keyup', event => {
+        if (event.code === 'Space') {
+          this.togglePlay()
+        }
+      })
     },
     mounted () {
       this.audio = this.$refs.audioFile
       this.audio.addEventListener('timeupdate', this.update)
       this.audio.addEventListener('loadeddata', this.load)
+      this.audio.addEventListener('buffered', this.update)
       this.audio.addEventListener('pause', () => {
         this.playing = false
       })
@@ -170,7 +264,6 @@
         throw new Error('Failed to load sound file.')
       },
       mute () {
-        console.log('kim')
         if (this.muted) {
           this.volume = this.previousVolume
           return this.volume
@@ -180,27 +273,32 @@
       },
       seek (e) {
         if (!this.loaded) return
-
         const el = e.target.getBoundingClientRect()
         const seekPos = (e.clientX - el.left) / el.width
-
         this.audio.currentTime = (this.audio.duration * seekPos)
       },
       stop () {
         this.playing = false
         this.audio.currentTime = 0
       },
+      togglePlay () {
+        this.playing = !this.playing
+      },
       update () {
-        this.currentSeconds = (this.audio.currentTime)
+        this.currentSeconds = this.audio.currentTime
+        this.buffered = this.audio.buffered.end(0)
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  @import "src/assets/scss/breakpoints";
+
   $player-bg: var(--color-septary);
   $player-text-color: #451a43;
-  $player-progress-color: var(--color-quinary);
+  $player-progress-color: var(--color-primary);
+  $player-buffered-color: var(--color-quinary);
   $player-seeker-color: $player-text-color;
   $player-link-color: $player-text-color;
 
@@ -209,7 +307,21 @@
     bottom: 0;
     width: 100%;
     background-color: $player-bg;
-    padding: .5rem 2rem;
+    padding: .25rem 1rem;
+    @media all and (min-width: $medium) {
+      padding: .5rem 2rem;
+    }
+  }
+
+  .player a,
+  .player a:visited,
+  .player a:active {
+    color: $player-link-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .player-controls {
@@ -229,23 +341,55 @@
     margin-right: 1rem;
   }
 
+  .player-livestream {
+    font-size: .875rem;
+    font-weight: 400;
+    color: rgba(69, 26, 67, .8);
+  }
+
+  .player-livestream .player-livestream-link {
+    display: none;
+    @media all and (min-width: $medium) {
+      display: inline-block;
+      margin-left: .5rem;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+  }
+
   .player-track {
     flex: auto;
     padding: 0 2rem;
+    overflow: hidden;
   }
 
   .player-track-title {
     font-size: var(--font-size-7);
     font-weight: 500;
-    margin-bottom: .5rem;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .player-track-title-details {
+    font-weight: 300;
   }
 
   .player-track-progress {
-    position: relative;
+    position: absolute;
     background-color: $player-progress-color;
     cursor: pointer;
-    height: 3px;
     min-width: 200px;
+    top: -5px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    @media all and (min-width: $medium) {
+      height: 3px;
+      margin-top: .5rem;
+      position: relative;
+    }
   }
 
   .player-track-progress .player-track-seeker {
@@ -254,6 +398,16 @@
     left: 0;
     position: absolute;
     top: 0;
+    z-index: 20;
+  }
+
+  .player-track-progress .player-track-buffered {
+    background-color: $player-buffered-color;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 10;
   }
 
   .player-track-progress .player-track-playhead {
@@ -283,9 +437,11 @@
 
   .player-track-time {
     display: flex;
-    justify-content: flex-end;
     font-size: var(--font-size-2);
     font-weight: 500;
+    @media all and (min-width: $medium) {
+      justify-content: flex-end;
+    }
   }
 
   .player-track-time .player-track-time-current {
@@ -303,107 +459,10 @@
   }
 
   .player-volume {
-    display: flex;
-  }
-
-  // input range base styles
-
-  input[type=range] {
-    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-    background: transparent; /* Otherwise white in Chrome */
-    width: 76px;
-    margin-right: 1.5rem;
-  }
-
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-  }
-
-  input[type=range]:focus {
-    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-  }
-
-  input[type=range]::-ms-track {
-    width: 100%;
-    cursor: pointer;
-
-    // Hides the slider so custom styles can be added
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-
-  // input range thumb
-
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background: var(--color-black);
-    cursor: pointer;
-    margin-top: -6px; /* (thumb height/2 + track height/2) You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  }
-
-  input[type=range]::-moz-range-thumb {
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background: var(--color-black);
-    cursor: pointer;
-  }
-
-  input[type=range]::-ms-thumb {
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background: var(--color-black);
-    cursor: pointer;
-  }
-
-  // input range track
-
-  input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 3px;
-    cursor: pointer;
-    background: var(--color-black);
-  }
-
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: var(--color-black);
-  }
-
-  input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 3px;
-    cursor: pointer;
-    background: var(--color-black);
-  }
-
-  input[type=range]::-ms-track {
-    width: 100%;
-    height: 3px;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    border-width: 16px 0;
-    color: transparent;
-  }
-
-  input[type=range]::-ms-fill-lower {
-    background: var(--color-black);
-  }
-
-  input[type=range]:focus::-ms-fill-lower {
-    background: var(--color-black);
-  }
-
-  input[type=range]::-ms-fill-upper {
-    background: var(--color-black);
-  }
-
-  input[type=range]:focus::-ms-fill-upper {
-    background: var(--color-black);
+    display: none;
+    @media all and (min-width: $medium) {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 </style>

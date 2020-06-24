@@ -19,8 +19,12 @@
     <the-footer />
     <v-spacer size="double" />
     <audio-player
-      title="Sample Audio File"
-      file="https://upload.wikimedia.org/wikipedia/commons/d/d6/Louis-Emmanuel_Jadin_-_Nocturne_No._3_in_G_minor_-_2._Allegro_molto.ogg"
+      livestream
+      title="The Show"
+      title-link="http://www.google.com"
+      details="Lorem Ipsum Dolor Sit Amet this is a really long title so I can test this out!"
+      details-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
   </div>
 </template>

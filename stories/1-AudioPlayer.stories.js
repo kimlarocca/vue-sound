@@ -9,7 +9,25 @@ export const Default = () => ({
   components: { AudioPlayer },
   template: `
     <audio-player
-      file="https://upload.wikimedia.org/wikipedia/commons/d/d6/Louis-Emmanuel_Jadin_-_Nocturne_No._3_in_G_minor_-_2._Allegro_molto.ogg"
+      title="The Show"
+      title-link="http://www.google.com"
+      details="Lorem Ipsum Dolor Sit Amet"
+      details-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+})
+
+export const Livestream = () => ({
+  components: { AudioPlayer },
+  template: `
+    <audio-player
+      livestream
+      title="The Show"
+      title-link="http://www.google.com"
+      details="Lorem Ipsum Dolor Sit Amet"
+      details-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
   `
 })

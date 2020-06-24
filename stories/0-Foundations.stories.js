@@ -216,6 +216,9 @@ export const Forms = () => ({
         <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
         <input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox 3</label>
       </fieldset>
+      <label>Input Range
+        <input type="range" min="0" max="100">
+      </label>
     </div>
   `
 })
