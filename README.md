@@ -12,13 +12,13 @@ Import or require Vue and Vue Hifi in your code:
 
 ```
 import Vue from 'vue'
-import VueHifi from 'vue-hifi'
+import VueHifi from 'VueHifi'
 ```
 
 ### Example
 
 ``` 
-<audio-player
+<vue-hifi
   livestream
   show-download
   title="The Show"

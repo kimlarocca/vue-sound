@@ -1,5 +1,5 @@
 <template>
-  <audio-player
+  <vue-hifi
     title="The Show"
     title-link="http://www.google.com"
     details="Lorem Ipsum Dolor Sit Amet this is a really long title so I can test this out!"
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-  import AudioPlayer from '../components/AudioPlayer'
+  import VueHifi from '../components/VueHifi'
 
   export default {
     name: 'Default',
     components: {
-      AudioPlayer
+      VueHifi
     }
   }
 </script>
