@@ -4,17 +4,17 @@
       <a
         v-if="showSkip && !livestream"
         tabindex="0"
+        class="player-back-15-icon"
         @click="goBack15"
         @keypress.space.enter="goBack15"
-        class="u-display--flex"
       >
         <back15-icon />
       </a>
       <a
         tabindex="0"
+        class="player-play-pause-icon"
         @click="togglePlay"
         @keypress.space.enter="togglePlay"
-        class="u-display--flex"
       >
         <play-icon v-if="!playing" />
         <pause-icon v-if="playing" />
@@ -22,9 +22,9 @@
       <a
         v-if="showSkip && !livestream"
         tabindex="0"
+        class="player-ahead-15-icon"
         @click="goAhead15"
         @keypress.space.enter="goAhead15"
-        class="u-display--flex"
       >
         <ahead15-icon />
       </a>
@@ -37,11 +37,7 @@
           <a v-if="hasDetails && hasDetailsLink" :href="detailsLink" class="player-track-title-details">{{ details
             }}</a>
         </div>
-        <template v-if="livestream">
-          <div class="player-livestream">Live Now on New Sounds <a href="/livestream" class="player-livestream-link">Previously
-            Played</a></div>
-        </template>
-        <template v-else>
+        <template v-if="!livestream">
           <div
             class="player-track-progress"
             @click="seek"
@@ -62,14 +58,6 @@
           </div>
         </template>
       </div>
-      <a
-        v-if="showDownload"
-        tabindex="0"
-        @click="download"
-        @keypress.space.enter="download"
-      >
-        <download-icon />
-      </a>
       <div
         class="player-volume"
         @mouseover.prevent="showVolume = true"
@@ -93,6 +81,7 @@
         </transition>
         <a
           tabindex="0"
+          class="player-volume-icon"
           @click="mute"
           @keypress.space.enter="mute"
         >
@@ -100,6 +89,15 @@
           <volume-muted-icon v-if="muted" />
         </a>
       </div>
+      <a
+        v-if="showDownload && !livestream"
+        tabindex="0"
+        class="player-download-icon"
+        @click="download"
+        @keypress.space.enter="download"
+      >
+        <download-icon />
+      </a>
     </div>
     <audio
       ref="audioFile"
@@ -122,7 +120,15 @@
 
   export default {
     name: 'AudioPlayer',
-    components: { PlayIcon, PauseIcon, Back15Icon, Ahead15Icon, VolumeIcon, VolumeMutedIcon, DownloadIcon },
+    components: {
+      PlayIcon,
+      PauseIcon,
+      Back15Icon,
+      Ahead15Icon,
+      VolumeIcon,
+      VolumeMutedIcon,
+      DownloadIcon
+    },
     filters: {
       convertTimeHHMMSS (val) {
         const hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
@@ -292,31 +298,35 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "src/assets/scss/breakpoints";
+<style lang="scss">
+  $breakpoint: 768px;
 
-  $player-bg: var(--color-septary);
-  $player-text-color: #451a43;
-  $player-progress-color: var(--color-primary);
-  $player-buffered-color: var(--color-quinary);
-  $player-seeker-color: $player-text-color;
-  $player-link-color: $player-text-color;
+  :root {
+    --player-background: #ff9efc;
+    --player-font-size: 1rem;
+    --player-font-size-small: .7rem;
+    --player-font-weight: 300;
+    --player-font-weight-bold: 500;
+    --player-text-color: #451a43;
+    --player-icon-color: var(--player-text-color);
+    --player-link-color: var(--player-text-color);
+    --player-progress-color: #f25ced;
+    --player-buffered-color: #cc4ec8;
+    --player-seeker-color: #451a43;
+    --player-input-range-color: var(--player-text-color);
+  }
 
   .player {
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    background-color: $player-bg;
-    padding: .25rem 1rem;
-    @media all and (min-width: $medium) {
-      padding: .5rem 2rem;
-    }
+    background-color: var(--player-background);
+    padding: .5rem 1rem;
+    font-weight: var(--player-font-weight);
   }
 
   .player a,
   .player a:visited,
   .player a:active {
-    color: $player-link-color;
+    color: var(--player-link-color);
     text-decoration: none;
 
     &:hover {
@@ -329,31 +339,30 @@
     align-items: center;
   }
 
-  .player-controls .back-15-icon {
-    margin-right: 1rem;
+  .player-back-15-icon,
+  .player-play-pause-icon,
+  .player-ahead-15-icon,
+  .player-download-icon,
+  .player-volume-icon {
+    display: flex;
+    fill: var(--player-icon-color);
   }
 
-  .player-controls .ahead-15-icon {
+  .player-back-15-icon {
+    margin-right: 1rem;
+    width: 20px;
+  }
+
+  .player-ahead-15-icon {
     margin-left: 1rem;
+    width: 20px;
   }
 
-  .player-controls .download-icon {
-    margin-right: 1rem;
-  }
-
-  .player-livestream {
-    font-size: .875rem;
-    font-weight: 400;
-    color: rgba(69, 26, 67, .8);
-  }
-
-  .player-livestream .player-livestream-link {
+  .player-download-icon {
     display: none;
-    @media all and (min-width: $medium) {
-      display: inline-block;
-      margin-left: .5rem;
-      font-size: .75rem;
-      font-weight: 700;
+    @media all and (min-width: $breakpoint) {
+      display: flex;
+      margin-left: 1rem;
     }
   }
 
@@ -364,8 +373,8 @@
   }
 
   .player-track-title {
-    font-size: var(--font-size-7);
-    font-weight: 500;
+    font-size: var(--player-font-size);
+    font-weight: var(--player-font-weight-bold);
     width: 100%;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -378,22 +387,23 @@
 
   .player-track-progress {
     position: absolute;
-    background-color: $player-progress-color;
+    background-color: var(--player-progress-color);
     cursor: pointer;
     min-width: 200px;
-    top: -5px;
+    top: 0;
     left: 0;
     right: 0;
     height: 5px;
-    @media all and (min-width: $medium) {
+    @media all and (min-width: $breakpoint) {
+      top: -5px;
       height: 3px;
-      margin-top: .5rem;
+      margin-top: .75rem;
       position: relative;
     }
   }
 
   .player-track-progress .player-track-seeker {
-    background-color: $player-seeker-color;
+    background-color: var(--player-seeker-color);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -402,7 +412,7 @@
   }
 
   .player-track-progress .player-track-buffered {
-    background-color: $player-buffered-color;
+    background-color: var(--player-buffered-color);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -425,7 +435,7 @@
       content: '';
       height: 22px;
       width: 22px;
-      background-color: #451a43;
+      background-color: var(--player-buffered-color);
       border-radius: 50%;
       opacity: 1;
       display: block;
@@ -437,9 +447,9 @@
 
   .player-track-time {
     display: flex;
-    font-size: var(--font-size-2);
-    font-weight: 500;
-    @media all and (min-width: $medium) {
+    font-size: var(--player-font-size-small);
+    font-weight: var(--player-font-weight-bold);
+    @media all and (min-width: $breakpoint) {
       justify-content: flex-end;
     }
   }
@@ -460,9 +470,134 @@
 
   .player-volume {
     display: none;
-    @media all and (min-width: $medium) {
+    @media all and (min-width: $breakpoint) {
       display: flex;
       justify-content: flex-end;
     }
+  }
+
+  // input range base styles
+
+  input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    background: transparent; /* Otherwise white in Chrome */
+    width: 100%; /* Chrome needs this */
+    margin-right: 1.5rem;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+
+  input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+
+    // Hides the slider so custom styles can be added
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  // input range thumb
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: var(--player-input-range-color);
+    cursor: pointer;
+    margin-top: -6px; /* (thumb height/2 + track height/2) You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  }
+
+  input[type=range]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: var(--player-input-range-color);
+    cursor: pointer;
+  }
+
+  input[type=range]::-ms-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: var(--player-input-range-color);
+    cursor: pointer;
+  }
+
+  // input range track
+
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: var(--player-input-range-color);
+  }
+
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: var(--player-input-range-color);
+  }
+
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: var(--player-input-range-color);
+  }
+
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+
+  input[type=range]::-ms-fill-lower {
+    background: var(--player-input-range-color);
+  }
+
+  input[type=range]:focus::-ms-fill-lower {
+    background: var(--player-input-range-color);
+  }
+
+  input[type=range]::-ms-fill-upper {
+    background: var(--player-input-range-color);
+  }
+
+  input[type=range]:focus::-ms-fill-upper {
+    background: var(--player-input-range-color);
+  }
+
+  // slide in transition
+
+  .slide-left-enter-active,
+  .slide-left-leave-active,
+  .slide-right-enter-active,
+  .slide-right-leave-active {
+    transition-duration: var(--animation-duration);
+    transition-property: height, opacity, transform;
+    transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+    overflow: hidden;
+  }
+
+  .slide-left-enter,
+  .slide-right-leave-active {
+    opacity: 0;
+    transform: translate(2em, 0);
+  }
+
+  .slide-left-leave-active,
+  .slide-right-enter {
+    opacity: 0;
+    transform: translate(-2em, 0);
   }
 </style>

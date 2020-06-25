@@ -13,8 +13,8 @@
   --color-septary: #ff9efc;
 
   // Fonts
-  @import url("https://use.typekit.net/mwg2nux.css");
-  --font-family-primary: "sofia-pro", Arial, sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+  --font-family-primary: 'Roboto', sans-serif;
   --font-family-fa: "Font Awesome 5 Free", serif;
 
   // Font Levers
@@ -117,10 +117,6 @@
       @include typeface(normal, 6);
       font-weight: var(--font-weight);
     }
-  }
-
-  div {
-    font-weight: var(--font-weight);
   }
 
   .small-text {

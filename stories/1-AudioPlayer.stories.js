@@ -9,6 +9,7 @@ export const Default = () => ({
   components: { AudioPlayer },
   template: `
     <audio-player
+      show-download
       title="The Show"
       title-link="http://www.google.com"
       details="Lorem Ipsum Dolor Sit Amet"
@@ -23,6 +24,7 @@ export const Livestream = () => ({
   template: `
     <audio-player
       livestream
+      show-download
       title="The Show"
       title-link="http://www.google.com"
       details="Lorem Ipsum Dolor Sit Amet"
