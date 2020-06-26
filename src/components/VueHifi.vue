@@ -353,6 +353,7 @@
     background-color: var(--player-background);
     padding: .5rem 1rem;
     font-weight: var(--player-font-weight);
+    position: relative;
   }
 
   .player a,
