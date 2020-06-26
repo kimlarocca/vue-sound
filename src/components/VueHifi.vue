@@ -3,44 +3,56 @@
     <div class="player-controls">
       <a
         v-if="showSkip && !livestream"
-        tabindex="0"
         class="player-back-15-icon"
+        aria-label="go back 15 seconds"
         @click="goBack15"
-        @keypress.space.enter="goBack15"
       >
         <back15-icon />
       </a>
       <a
-        tabindex="0"
         class="player-play-pause-icon"
+        :aria-label="playing ? 'pause' : 'play'"
         @click="togglePlay"
-        @keypress.space.enter="togglePlay"
       >
         <play-icon v-if="!playing" />
         <pause-icon v-if="playing" />
       </a>
       <a
         v-if="showSkip && !livestream"
-        tabindex="0"
         class="player-ahead-15-icon"
+        aria-label="go ahead 15 seconds"
         @click="goAhead15"
-        @keypress.space.enter="goAhead15"
       >
         <ahead15-icon />
       </a>
       <div class="player-track">
         <div class="player-track-title">
-          <a v-if="hasTitle && hasTitleLink" :href="titleLink">{{ title }}</a>
+          <a
+            v-if="hasTitle && hasTitleLink"
+            :href="titleLink"
+          >
+            {{ title }}
+          </a>
           <span v-if="hasTitle && !hasTitleLink">{{ title }}</span>
           <span v-if="hasTitle && hasDetails"> - </span>
-          <span v-if="hasDetails && !hasDetailsLink" class="player-track-title-details">{{ details }}</span>
-          <a v-if="hasDetails && hasDetailsLink" :href="detailsLink" class="player-track-title-details">{{ details
-            }}</a>
+          <span
+            v-if="hasDetails && !hasDetailsLink"
+            class="player-track-title-details"
+          >
+            {{ details }}
+          </span>
+          <a
+            v-if="hasDetails && hasDetailsLink"
+            :href="detailsLink"
+            class="player-track-title-details"
+          >
+            {{ details }}
+          </a>
         </div>
         <template v-if="!livestream">
           <div
             class="player-track-progress"
-            @click="seek"
+            @click.prevent="seek"
           >
             <div
               :style="{ width: percentComplete + '%' }"
@@ -67,7 +79,7 @@
           for="playerVolume"
           class="hide-ally-element"
         >
-          audio player volume slider
+          volume slider
         </label>
         <transition name="slide-left">
           <input
@@ -82,6 +94,7 @@
         <a
           tabindex="0"
           class="player-volume-icon"
+          :aria-label="muted ? 'unmute' : 'mute'"
           @click="mute"
           @keypress.space.enter="mute"
         >
@@ -93,6 +106,7 @@
         v-if="showDownload && !livestream"
         tabindex="0"
         class="player-download-icon"
+        aria-label="download"
         @click="download"
         @keypress.space.enter="download"
       >
@@ -231,9 +245,27 @@
     },
     created () {
       this.innerLoop = this.loop
-      window.addEventListener('keyup', event => {
-        if (event.code === 'Space') {
-          this.togglePlay()
+      // keyboard accessibility
+      window.addEventListener('keydown', event => {
+        switch (event.code) {
+          case 'Space':
+            this.togglePlay()
+            break
+          case 'Enter':
+            this.togglePlay()
+            break
+          case 'ArrowUp':
+            if (this.volume < 100) this.volume++
+            break
+          case 'ArrowDown':
+            if (this.volume > 0) this.volume--
+            break
+          case 'ArrowLeft':
+            this.goBack15()
+            break
+          case 'ArrowRight':
+            this.goAhead15()
+            break
         }
       })
     },
