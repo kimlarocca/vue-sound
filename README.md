@@ -2,6 +2,8 @@
 
 Add a beautiful & accessible cross-browser HTML5 audio player to your Vue app!
 
+[DEMO](http://vuehifi.kimlarocca.com)
+
 ## Installation and Usage
 
 ```
