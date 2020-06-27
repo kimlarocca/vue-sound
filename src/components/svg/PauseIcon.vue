@@ -5,7 +5,9 @@
     width="32"
     xmlns="http://www.w3.org/2000/svg"
     class="pause-icon"
+    role="img"
   >
+    <title>Pause</title>
     <path d="m16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zm0 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13zm-6-19h4v12h-4zm8 0h4v12h-4z" />
   </svg>
 </template>
