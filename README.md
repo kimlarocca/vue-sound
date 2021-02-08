@@ -2,7 +2,7 @@
 
 Add a beautiful & accessible cross-browser HTML5 audio player to your Vue app!
 
-[DEMO](http://vuehifi.kimlarocca.com)
+Demo: [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound)
 
 ## Installation and Usage
 
@@ -111,7 +111,7 @@ Finally, push the updates to the gh-pages branch:
 git subtree push --prefix storybook-static origin gh-pages
 ```
 
-In a few minutes, Github Pages should refresh with your newest repository changes. Visit [https://kimlarocca.github.io/vue-evolve](https://kimlarocca.github.io/vue-evolve) to view Storybook!
+In a few minutes, Github Pages should refresh with your newest repository changes. Visit [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound) to view Storybook!
 
 #### Lints and fixes files
 ```
@@ -122,6 +122,6 @@ npm run lint
 
 Report issues or open pull requests on github: https://github.com/kimlarocca/vue-sound
 
-## Need support for live streaming or audio fallbacks?
+## Need support for streaming or audio fallbacks?
 
-Try adding `vue-hifi` by NY Public Radio to your project! (https://github.com/nypublicradio/vue-hifi)
+Try adding `vue-hifi` by NY Public Radio to your project! [https://github.com/nypublicradio/vue-hifi](https://github.com/nypublicradio/vue-hifi)
