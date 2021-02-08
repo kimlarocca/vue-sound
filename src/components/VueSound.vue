@@ -133,7 +133,7 @@
   import DownloadIcon from './svg/DownloadIcon'
 
   export default {
-    name: 'AudioPlayer',
+    name: 'VueSoumd',
     components: {
       PlayIcon,
       PauseIcon,

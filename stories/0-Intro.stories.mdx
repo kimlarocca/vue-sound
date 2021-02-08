@@ -1,3 +1,7 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
 # Vue Sound: An accessible audio player built with Vue.js
 
 Add a beautiful & accessible cross-browser HTML5 audio player to your Vue app!
@@ -19,7 +23,7 @@ import VueSound from 'vue-sound'
 
 ### Example
 
-``` 
+```
 <vue-sound
   livestream
   show-download
@@ -49,7 +53,7 @@ file | string | null | url for the audio file (mp3 is highly recommended)
 
 Override these CSS variables to customize the look and feel:
 
-``` 
+```
 :root {
     --player-background: #ff9efc;
     --player-font-size: 1rem;
@@ -64,7 +68,7 @@ Override these CSS variables to customize the look and feel:
     --player-seeker-color: #451a43;
     --player-input-range-color: var(--player-text-color);
 }
-``` 
+```
 
 ### Browser Support
 
@@ -80,40 +84,22 @@ Vue Sound is 100% keyboard accessible. The enter/space keys toggle play/pause, t
 npm install
 ```
 
-#### Compiles and hot-reloads for development
+Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-#### Compiles and minifies for production
+Compiles and minifies for production
 ```
 npm run build
 ```
 
-#### Launches Storybook
+Launches Storybook
 ```
 npm run storybook
 ```
 
-#### Deploys Storybook To Github Pages
-
-First build storybook:
-
-```
-npm run build-storybook
-```
-
-Then push to the main branch.
-
-Finally, push the updates to the gh-pages branch:
-
-```
-git subtree push --prefix storybook-static origin gh-pages
-```
-
-In a few minutes, Github Pages should refresh with your newest repository changes. Visit [https://kimlarocca.github.io/vue-evolve](https://kimlarocca.github.io/vue-evolve) to view Storybook!
-
-#### Lints and fixes files
+Lints and fixes files
 ```
 npm run lint
 ```
@@ -121,7 +107,3 @@ npm run lint
 ## Questions / Contributing
 
 Report issues or open pull requests on github: https://github.com/kimlarocca/vue-sound
-
-## Need support for live streaming or audio fallbacks?
-
-Try adding `vue-hifi` by NY Public Radio to your project! (https://github.com/nypublicradio/vue-hifi)

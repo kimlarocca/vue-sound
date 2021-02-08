@@ -1,14 +1,13 @@
-import VueHifi from '../src/components/VueHifi'
+import VueSound from '../src/components/VueSound'
 
 export default {
-  title: 'Vue Hifi Audio Player',
-  component: VueHifi
+  title: 'Vue Sound Audio Player'
 }
 
 export const Default = () => ({
-  components: { VueHifi },
+  components: { VueSound },
   template: `
-    <vue-hifi
+    <vue-sound
       show-download
       title="The Show"
       title-link="http://www.google.com"
@@ -20,9 +19,9 @@ export const Default = () => ({
 })
 
 export const Livestream = () => ({
-  components: { VueHifi },
+  components: { VueSound },
   template: `
-    <vue-hifi
+    <vue-sound
       livestream
       show-download
       title="The Show"
@@ -35,9 +34,9 @@ export const Livestream = () => ({
 })
 
 export const WithoutDownloadButton = () => ({
-  components: { VueHifi },
+  components: { VueSound },
   template: `
-    <vue-hifi
+    <vue-sound
       title="The Show"
       title-link="http://www.google.com"
       details="Lorem Ipsum Dolor Sit Amet"
@@ -48,9 +47,9 @@ export const WithoutDownloadButton = () => ({
 })
 
 export const WithoutLinks = () => ({
-  components: { VueHifi },
+  components: { VueSound },
   template: `
-    <vue-hifi
+    <vue-sound
       show-download
       title="The Show"
       details="Lorem Ipsum Dolor Sit Amet"
@@ -60,9 +59,9 @@ export const WithoutLinks = () => ({
 })
 
 export const WithoutDetails = () => ({
-  components: { VueHifi },
+  components: { VueSound },
   template: `
-    <vue-hifi
+    <vue-sound
       show-download
       title="The Show"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
@@ -71,9 +70,9 @@ export const WithoutDetails = () => ({
 })
 
 export const WithoutATitle = () => ({
-  components: { VueHifi },
+  components: { VueSound },
   template: `
-    <vue-hifi
+    <vue-sound
       show-download
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
@@ -81,9 +80,9 @@ export const WithoutATitle = () => ({
 })
 
 export const WithoutSkipButtons = () => ({
-  components: { VueHifi },
+  components: { VueSound },
   template: `
-    <vue-hifi
+    <vue-sound
       :show-skip="false"
       title="The Show"
       title-link="http://www.google.com"

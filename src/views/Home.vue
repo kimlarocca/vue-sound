@@ -1,10 +1,10 @@
 <template>
   <main class="home">
     <div class="u-padding--double">
-      <h1 class="u-align--center u-space--bottom">Vue Hifi</h1>
-      <p class="u-align--center">An accessible audio player built with Vue.js. <a href="https://github.com/kimlarocca/vue-hifi">View on GitHub ></a></p>
+      <h1 class="u-align--center u-space--bottom">Vue Sound</h1>
+      <p class="u-align--center">An accessible audio player built with Vue.js. <a href="https://github.com/kimlarocca/vue-sound">View on GitHub >></a></p>
     </div>
-    <vue-hifi
+    <vue-sound
       title="The Show"
       title-link="http://www.google.com"
       details="Lorem Ipsum Dolor Sit Amet this is a really long title so I can test this out!"
@@ -15,12 +15,12 @@
 </template>
 
 <script>
-  import VueHifi from '../components/VueHifi'
+  import VueSound from '../components/VueSound'
 
   export default {
     name: 'Default',
     components: {
-      VueHifi
+      VueSound
     }
   }
 </script>

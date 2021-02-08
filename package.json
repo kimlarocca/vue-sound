@@ -1,6 +1,6 @@
 {
-  "name": "vue-hifi",
-  "version": "0.0.4",
+  "name": "vue-sound",
+  "version": "0.0.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -14,30 +14,36 @@
     "vue-router": "^3.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@storybook/addon-a11y": "^5.3.19",
-    "@storybook/addon-viewport": "^5.3.19",
-    "@storybook/addons": "^5.3.19",
-    "@storybook/vue": "^5.3.19",
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-plugin-router": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@babel/core": "^7.12.10",
+    "@storybook/addon-a11y": "^6.1.15",
+    "@storybook/addon-docs": "^6.1.15",
+    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-viewport": "^6.1.15",
+    "@storybook/addons": "^6.1.15",
+    "@storybook/theming": "^6.1.15",
+    "@storybook/vue": "^6.1.15",
+    "@vue/cli-plugin-babel": "^4.5.9",
+    "@vue/cli-plugin-eslint": "^4.5.9",
+    "@vue/cli-plugin-router": "^4.5.9",
+    "@vue/cli-service": "^4.5.9",
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.2",
     "babel-preset-vue": "^2.0.2",
     "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-standard": "^4.1.0",
     "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.12.0",
-    "react": "^16.13.1",
+    "node-sass": "^4.14.1",
+    "react": "^16.14.0",
     "react-is": "^16.13.1",
+    "sass": "^1.32.0",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "storybook-addon-themes": "^6.0.1",
+    "style-resources-loader": "^1.4.1",
+    "vue-template-compiler": "^2.6.12"
   },
   "description": "An audio player built with Vue.js",
   "repository": {
@@ -46,17 +52,17 @@
   },
   "keywords": [
     "vue",
-    "hifi",
     "audio",
     "audio player",
     "html5 audio",
+    "livestream",
     "vuejs",
     "component"
   ],
   "author": "Kim LaRocca",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kimlarocca/vue-hifi/issues"
+    "url": "https://github.com/kimlarocca/vue-sound/issues"
   },
-  "homepage": "https://github.com/kimlarocca/vue-hifi#readme"
+  "homepage": "https://github.com/kimlarocca/vue-sound#readme"
 }
