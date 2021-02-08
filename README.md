@@ -1,3 +1,5 @@
+<img width="300" src="https://raw.githubusercontent.com/kimlarocca/vue-sound/main/public/logo.png" alt="vue sound" />
+
 # Vue Sound: An accessible audio player built with Vue.js
 
 Add a beautiful & accessible cross-browser HTML5 audio player to your Vue app!
@@ -7,7 +9,7 @@ Demo: [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-
 ## Installation and Usage
 
 ```
-npm install vue-hifi
+npm install vue-sound
 ```
 
 Import or require Vue and Vue Sound in your code:
