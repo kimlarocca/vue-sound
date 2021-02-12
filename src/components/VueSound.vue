@@ -30,6 +30,7 @@
           <a
             v-if="hasTitle && hasTitleLink"
             :href="titleLink"
+            class="player-track-title-link"
           >
             {{ title }}
           </a>
@@ -44,7 +45,7 @@
           <a
             v-if="hasDetails && hasDetailsLink"
             :href="detailsLink"
-            class="player-track-title-details"
+            class="player-track-title-details-link"
           >
             {{ details }}
           </a>
