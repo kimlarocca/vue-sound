@@ -115,6 +115,11 @@ git subtree push --prefix storybook-static origin gh-pages
 
 In a few minutes, Github Pages should refresh with your newest repository changes. Visit [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound) to view Storybook!
 
+#### Runs unit tests
+```
+npm run test
+```
+
 #### Lints and fixes files
 ```
 npm run lint
