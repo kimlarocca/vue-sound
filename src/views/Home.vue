@@ -7,9 +7,15 @@
           alt="vue sound"
         >
       </div>
-      <h1 class="u-align--center u-space--bottom">Vue Sound</h1>
-      <p class="u-align--center u-space--bottom">An accessible audio player built with Vue</p>
-      <p class="u-align--center"><a href="https://github.com/kimlarocca/vue-sound">View on GitHub</a></p>
+      <h1 class="u-align--center u-space--bottom">
+        Vue Sound
+      </h1>
+      <p class="u-align--center u-space--bottom">
+        An accessible audio player built with Vue
+      </p>
+      <p class="u-align--center">
+        <a href="https://github.com/kimlarocca/vue-sound">View on GitHub</a>
+      </p>
     </div>
     <div class="l-container">
       <vue-sound
