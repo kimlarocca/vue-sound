@@ -407,6 +407,7 @@ $breakpoint: 768px;
 }
 
 .player-track-title {
+  color: var(--player-text-color);
   font-size: var(--player-font-size);
   font-weight: var(--player-font-weight-bold);
   width: 100%;
@@ -416,6 +417,7 @@ $breakpoint: 768px;
 }
 
 .player-track-title-details {
+  color: var(--player-text-color);
   font-weight: 300;
 }
 
