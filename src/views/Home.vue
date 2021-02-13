@@ -5,6 +5,7 @@
         <img
           src="/logo.png"
           alt="vue sound"
+          width="300"
         >
       </div>
       <h1 class="u-align--center u-space--bottom">
