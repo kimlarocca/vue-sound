@@ -94,12 +94,6 @@ npm run serve
 npm run build
 ```
 
-#### Launches Storybook
-
-```
-npm run storybook
-```
-
 #### Deploy To Github Pages
 
 First build the project:
