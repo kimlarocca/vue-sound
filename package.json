@@ -1,12 +1,12 @@
 {
   "name": "vue-sound",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-sound.umd.cjs",
-  "module": "./dist/vue-sound.js",
+  "main": "./dist/vue-sound.umd.js",
+  "module": "./dist/vue-sound.es.js",
   "exports": {
     ".": {
       "import": "./dist/vue-sound.js",
