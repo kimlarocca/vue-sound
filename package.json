@@ -5,14 +5,14 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-sound.umd.js",
-  "module": "./dist/vue-sound.es.js",
+  "main": "./dist/vue-sound.umd.cjs",
+  "module": "./dist/vue-sound.js",
   "exports": {
     ".": {
       "import": "./dist/vue-sound.js",
-      "require": "./dist/vue-sound.umd.js"
+      "require": "./dist/vue-sound.umd.cjs"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
