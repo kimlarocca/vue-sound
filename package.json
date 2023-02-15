@@ -1,61 +1,38 @@
 {
   "name": "vue-sound",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "storybook": "start-storybook -s ./stories -p 6006",
-    "build-storybook": "build-storybook",
-    "test": "jest"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0"
+    "vue": "^3.2.16"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@jest/environment": "^26.6.2",
-    "@jest/globals": "^26.6.2",
-    "@storybook/addon-a11y": "^6.1.15",
-    "@storybook/addon-docs": "^6.1.15",
-    "@storybook/addon-essentials": "^6.1.15",
-    "@storybook/addon-viewport": "^6.1.15",
-    "@storybook/addons": "^6.1.15",
-    "@storybook/theming": "^6.1.15",
-    "@storybook/vue": "^6.1.15",
-    "@vue/cli-plugin-babel": "^4.5.9",
-    "@vue/cli-plugin-eslint": "^4.5.9",
-    "@vue/cli-plugin-router": "^4.5.9",
-    "@vue/cli-service": "^4.5.9",
-    "@vue/eslint-config-standard": "^5.1.2",
-    "@vue/test-utils": "^1.1.2",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.3",
+    "@babel/core": "^7.15.8",
+    "@types/node": "^16.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "@vitejs/plugin-vue": "^1.10.2",
+    "@vue/eslint-config-typescript": "^8.0.0",
     "babel-loader": "^8.2.2",
-    "babel-preset-vue": "^2.0.2",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.1.0",
-    "eslint-plugin-vue": "^6.2.2",
-    "jest": "^26.6.3",
-    "node-sass": "^4.14.1",
-    "react": "^16.14.0",
-    "react-is": "^16.13.1",
-    "sass": "^1.32.0",
-    "sass-loader": "^8.0.2",
-    "storybook-addon-themes": "^6.0.1",
-    "style-resources-loader": "^1.4.1",
-    "vue-jest": "^3.0.7",
-    "vue-template-compiler": "^2.6.12"
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.19.1",
+    "node-sass": "^8.0.0",
+    "prettier": "^2.4.1",
+    "sass": "^1.58.1",
+    "typescript": "^4.4.3",
+    "vite": "^2.6.4",
+    "vue-loader": "^16.8.1",
+    "vue-tsc": "^0.3.0"
   },
   "description": "An audio player built with Vue.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kimlarocca/vue-hifi.git"
+    "url": "git+https://github.com/kimlarocca/vue-sound.git"
   },
   "keywords": [
     "vue",
@@ -66,20 +43,6 @@
     "vuejs",
     "component"
   ],
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      ".*\\.(vue)$": "vue-jest",
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
-    }
-  },
-  "gitHooks": {
-    "pre-commit": "vue-cli-service lint && jest"
-  },
   "author": "Kim LaRocca",
   "license": "MIT",
   "bugs": {

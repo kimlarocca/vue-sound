@@ -21,7 +21,7 @@ import VueSound from 'vue-sound'
 
 ### Example
 
-``` 
+```
 <vue-sound
   livestream
   show-download
@@ -37,21 +37,21 @@ import VueSound from 'vue-sound'
 
 All props except for the audio file are optional.
 
-Prop | Type | Default | Description
---- | --- | --- | ---
-livestream | boolean | false | if true, displays slimmer version of audio player meant for a livestream
-show-download | boolean | false | if true, display a download button
-title | string | null | the title of the track
-title-link | string | null | url for the title link
-details | string | null | details for the track
-details-link | string | null | url for the details
-file | string | null | url for the audio file (mp3 is highly recommended)
+| Prop          | Type    | Default | Description                                                              |
+| ------------- | ------- | ------- | ------------------------------------------------------------------------ |
+| livestream    | boolean | false   | if true, displays slimmer version of audio player meant for a livestream |
+| show-download | boolean | false   | if true, display a download button                                       |
+| title         | string  | null    | the title of the track                                                   |
+| title-link    | string  | null    | url for the title link                                                   |
+| details       | string  | null    | details for the track                                                    |
+| details-link  | string  | null    | url for the details                                                      |
+| file          | string  | null    | url for the audio file (mp3 is highly recommended)                       |
 
 #### Styles
 
 Override these CSS variables to customize the look and feel:
 
-``` 
+```
 :root {
     --player-background: #ff9efc;
     --player-font-size: 1rem;
@@ -66,7 +66,7 @@ Override these CSS variables to customize the look and feel:
     --player-seeker-color: #451a43;
     --player-input-range-color: var(--player-text-color);
 }
-``` 
+```
 
 ### Browser Support
 
@@ -82,27 +82,30 @@ Vue Sound is 100% keyboard accessible. The enter/space keys toggle play/pause, t
 npm install
 ```
 
-#### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
-#### Compiles and minifies for production
+### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
 #### Launches Storybook
+
 ```
 npm run storybook
 ```
 
-#### Deploys Storybook To Github Pages
+#### Deploy To Github Pages
 
-First build storybook:
+First build the project:
 
 ```
-npm run build-storybook
+npm run build
 ```
 
 Then push to the main branch.
@@ -110,17 +113,19 @@ Then push to the main branch.
 Finally, push the updates to the gh-pages branch:
 
 ```
-git subtree push --prefix storybook-static origin gh-pages
+git subtree push --prefix dist origin gh-pages
 ```
 
 In a few minutes, Github Pages should refresh with your newest repository changes. Visit [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound) to view Storybook!
 
 #### Runs unit tests
+
 ```
 npm run test
 ```
 
 #### Lints and fixes files
+
 ```
 npm run lint
 ```

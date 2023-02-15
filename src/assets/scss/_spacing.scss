@@ -1,39 +1,39 @@
 $sizes: (
-        "":         var(--space-3),
-        --quarter:  calc(var(--space-3) / 4),
-        --half:     calc(var(--space-3) / 2),
-        --and-half: calc(var(--space-3) * 1.5),
-        --double:   calc(var(--space-3) * 2),
-        --triple:   calc(var(--space-3) * 3),
-        --quad:     calc(var(--space-3) * 4),
-        --quin:     calc(var(--space-3) * 5),
-        --hex:     calc(var(--space-3) * 6),
-        --sept:     calc(var(--space-3) * 7),
-        --oct:     calc(var(--space-3) * 8),
-        --non:     calc(var(--space-3) * 9),
-        --dec:     calc(var(--space-3) * 10),
-        --zero:     0rem
+  '': var(--space-3),
+  --quarter: calc(var(--space-3) / 4),
+  --half: calc(var(--space-3) / 2),
+  --and-half: calc(var(--space-3) * 1.5),
+  --double: calc(var(--space-3) * 2),
+  --triple: calc(var(--space-3) * 3),
+  --quad: calc(var(--space-3) * 4),
+  --quin: calc(var(--space-3) * 5),
+  --hex: calc(var(--space-3) * 6),
+  --sept: calc(var(--space-3) * 7),
+  --oct: calc(var(--space-3) * 8),
+  --non: calc(var(--space-3) * 9),
+  --dec: calc(var(--space-3) * 10),
+  --zero: 0rem
 );
 
 /**
  * Default Spacing/Padding
  * Maintain a spacing system divisible by 8
  */
-$space:             16px;
-$space-quarter:     $space/4;   // 4
-$space-half:        $space/2;   // 8
-$space-and-half:    $space*1.5; // 24
-$space-double:      $space*2;   // 32
-$space-double-half: $space*2.5; // 40
-$space-triple:      $space*3;   // 48
-$space-quad:        $space*4;   // 64
+$space: 16px;
+$space-quarter: calc($space/4); // 4
+$space-half: calc($space/2); // 8
+$space-and-half: calc($space * 1.5); // 24
+$space-double: calc($space * 2); // 32
+$space-double-half: calc($space * 2.5); // 40
+$space-triple: calc($space * 3); // 48
+$space-quad: calc($space * 4); // 64
 
 $sides: (
-        "": "",
-        --top: "-top",
-        --bottom: "-bottom",
-        --left: "-left",
-        --right: "-right"
+  '': '',
+  --top: '-top',
+  --bottom: '-bottom',
+  --left: '-left',
+  --right: '-right'
 );
 
 @each $size_key, $size_value in $sizes {

@@ -51,10 +51,7 @@
           </a>
         </div>
         <template v-if="!livestream">
-          <div
-            class="player-track-progress"
-            @click.prevent="seek"
-          >
+          <div class="player-track-progress" @click.prevent="seek">
             <div
               :style="{ width: percentComplete + '%' }"
               class="player-track-seeker"
@@ -65,9 +62,13 @@
             />
           </div>
           <div class="player-track-time">
-            <span class="player-track-time-current">{{ currentSeconds | convertTimeHHMMSS }}</span>
+            <span class="player-track-time-current">{{
+              convertTimeHHMMSS(currentSeconds)
+            }}</span>
             <span class="player-track-time-separator">/</span>
-            <span class="player-track-time-total">{{ durationSeconds | convertTimeHHMMSS }}</span>
+            <span class="player-track-time-total">{{
+              convertTimeHHMMSS(durationSeconds)
+            }}</span>
           </div>
         </template>
       </div>
@@ -76,10 +77,7 @@
         @mouseover.prevent="showVolume = true"
         @mouseleave.prevent="showVolume = false"
       >
-        <label
-          for="playerVolume"
-          class="hide-ally-element"
-        >
+        <label for="playerVolume" class="hide-ally-element">
           volume slider
         </label>
         <transition name="slide-left">
@@ -90,7 +88,7 @@
             type="range"
             min="0"
             max="100"
-          >
+          />
         </transition>
         <a
           tabindex="0"
@@ -125,16 +123,16 @@
 </template>
 
 <script>
-import PlayIcon from './svg/PlayIcon'
-import PauseIcon from './svg/PauseIcon'
-import Back15Icon from './svg/Back15Icon'
-import Ahead15Icon from './svg/Ahead15Icon'
-import VolumeIcon from './svg/VolumeIcon'
-import VolumeMutedIcon from './svg/VolumeMutedIcon'
-import DownloadIcon from './svg/DownloadIcon'
+import PlayIcon from '@/components/svg/PlayIcon.vue'
+import PauseIcon from '@/components/svg/PauseIcon.vue'
+import Back15Icon from '@/components/svg/Back15Icon.vue'
+import Ahead15Icon from '@/components/svg/Ahead15Icon.vue'
+import VolumeIcon from '@/components/svg/VolumeIcon.vue'
+import VolumeMutedIcon from '@/components/svg/VolumeMutedIcon.vue'
+import DownloadIcon from '@/components/svg/DownloadIcon.vue'
 
 export default {
-  name: 'VueSoumd',
+  name: 'VueSound',
   components: {
     PlayIcon,
     PauseIcon,
@@ -143,12 +141,6 @@ export default {
     VolumeIcon,
     VolumeMutedIcon,
     DownloadIcon
-  },
-  filters: {
-    convertTimeHHMMSS (val) {
-      const hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
-      return hhmmss.indexOf('00:') === 0 ? hhmmss.substr(3) : hhmmss
-    }
   },
   props: {
     autoPlay: {
@@ -283,6 +275,10 @@ export default {
     })
   },
   methods: {
+    convertTimeHHMMSS (val) {
+      const hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
+      return hhmmss.indexOf('00:') === 0 ? hhmmss.substr(3) : hhmmss
+    },
     download () {
       this.stop()
       window.open(this.file, 'download')
@@ -335,16 +331,16 @@ export default {
 $breakpoint: 768px;
 
 :root {
-  --player-background: #00123E;
-  --player-font-size: .9rem;
-  --player-font-size-small: .7rem;
+  --player-background: #00123e;
+  --player-font-size: 0.9rem;
+  --player-font-size-small: 0.7rem;
   --player-font-weight: 300;
   --player-font-weight-bold: 600;
   --player-text-color: #ffffff;
   --player-icon-color: var(--player-text-color);
   --player-link-color: var(--player-text-color);
-  --player-progress-color: #41B883;
-  --player-buffered-color: #41B883;
+  --player-progress-color: #41b883;
+  --player-buffered-color: #41b883;
   --player-seeker-color: #ffffff;
   --player-input-range-color: var(--player-text-color);
 }
@@ -352,7 +348,7 @@ $breakpoint: 768px;
 .player {
   width: 100%;
   background-color: var(--player-background);
-  padding: .85rem;
+  padding: 0.85rem;
   font-weight: var(--player-font-weight);
   position: relative;
 }
@@ -433,7 +429,7 @@ $breakpoint: 768px;
   @media all and (min-width: $breakpoint) {
     top: -5px;
     height: 3px;
-    margin-top: .75rem;
+    margin-top: 0.75rem;
     position: relative;
   }
 }
@@ -465,10 +461,10 @@ $breakpoint: 768px;
   left: 0;
   opacity: 0;
   bottom: 0;
-  transition: opacity .2s linear, transform .2s;
+  transition: opacity 0.2s linear, transform 0.2s;
 
   &::after {
-    content: '';
+    content: "";
     height: 22px;
     width: 22px;
     background-color: var(--player-buffered-color);
@@ -493,16 +489,16 @@ $breakpoint: 768px;
 
 .player-track-time .player-track-time-current {
   opacity: 1;
-  margin-right: .25rem;
+  margin-right: 0.25rem;
 }
 
 .player-track-time .player-track-time-separator {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .player-track-time .player-track-time-total {
-  opacity: .6;
-  margin-left: .25rem;
+  opacity: 0.6;
+  margin-left: 0.25rem;
 }
 
 .player-volume {
@@ -515,22 +511,22 @@ $breakpoint: 768px;
 
 // input range base styles
 
-input[type=range] {
+input[type="range"] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   background: transparent; /* Otherwise white in Chrome */
   width: 100%; /* Chrome needs this */
   margin-right: 1.5rem;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-input[type=range]:focus {
+input[type="range"]:focus {
   outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
 
-input[type=range]::-ms-track {
+input[type="range"]::-ms-track {
   width: 100%;
   cursor: pointer;
 
@@ -542,7 +538,7 @@ input[type=range]::-ms-track {
 
 // input range thumb
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 15px;
   width: 15px;
@@ -552,7 +548,7 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: -6px; /* (thumb height/2 + track height/2) You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
 }
 
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -560,7 +556,7 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }
 
-input[type=range]::-ms-thumb {
+input[type="range"]::-ms-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -570,25 +566,25 @@ input[type=range]::-ms-thumb {
 
 // input range track
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 3px;
   cursor: pointer;
   background: var(--player-input-range-color);
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+input[type="range"]:focus::-webkit-slider-runnable-track {
   background: var(--player-input-range-color);
 }
 
-input[type=range]::-moz-range-track {
+input[type="range"]::-moz-range-track {
   width: 100%;
   height: 3px;
   cursor: pointer;
   background: var(--player-input-range-color);
 }
 
-input[type=range]::-ms-track {
+input[type="range"]::-ms-track {
   width: 100%;
   height: 3px;
   cursor: pointer;
@@ -598,19 +594,19 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 
-input[type=range]::-ms-fill-lower {
+input[type="range"]::-ms-fill-lower {
   background: var(--player-input-range-color);
 }
 
-input[type=range]:focus::-ms-fill-lower {
+input[type="range"]:focus::-ms-fill-lower {
   background: var(--player-input-range-color);
 }
 
-input[type=range]::-ms-fill-upper {
+input[type="range"]::-ms-fill-upper {
   background: var(--player-input-range-color);
 }
 
-input[type=range]:focus::-ms-fill-upper {
+input[type="range"]:focus::-ms-fill-upper {
   background: var(--player-input-range-color);
 }
 

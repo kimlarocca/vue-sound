@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client", "node"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "#/*": ["types/*"]
+    },
+    "outDir": "dist/"
+  },
+  "exclude": ["node_modules"],
+  "include": [
+    "stories/**/*.js",
+    "stories/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
+}
