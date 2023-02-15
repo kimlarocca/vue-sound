@@ -1,9 +1,22 @@
 {
   "name": "vue-sound",
-  "version": "0.1.1",
+  "version": "0.1.2",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-sound.umd.cjs",
+  "module": "./dist/vue-sound.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-sound.js",
+      "require": "./dist/vue-sound.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build && vue-tsc --noEmit",
     "serve": "vite preview"
   },
   "dependencies": {

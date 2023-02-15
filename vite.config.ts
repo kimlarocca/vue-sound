@@ -23,21 +23,23 @@ export default defineConfig({
   },
   plugins: [vue()],
   build: {
-    sourcemap: true,
-    rollupOptions: {
-    // make sure to externalize deps that shouldn't be bundled
-    // into your library
-        external: ['vue', 'vue-router', 'vuex'],
-        treeshake: true,
-        output: {
-          // Provide global variables to use in the UMD build
-          // for externalized deps
-          exports: 'named',
-          globals: {
-            vue: 'Vue'
-          }
-        },
-
+    lib: {
+      entry: resolve(__dirname, 'lib/main.js'),
+      name: 'VueSound',
+      // the proper extensions will be added
+      fileName: 'vue-sound'
     },
-},
+    rollupOptions: {
+      // make sure to externalize deps that shouldn't be bundled
+      // into your library
+      external: ['vue'],
+      output: {
+        // Provide global variables to use in the UMD build
+        // for externalized deps
+        globals: {
+          vue: 'Vue'
+        }
+      }
+    }
+  }
 })
