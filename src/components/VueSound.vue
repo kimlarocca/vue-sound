@@ -1,124 +1,129 @@
 <template>
-  <div class="player">
-    <div class="player-controls">
-      <a
-        v-if="showSkip && !livestream"
-        class="player-back-15-icon"
-        aria-label="go back 15 seconds"
-        @click="goBack15"
-      >
-        <back15-icon />
-      </a>
-      <a
-        class="player-play-pause-icon"
-        :aria-label="playing ? 'pause' : 'play'"
-        @click="togglePlay"
-      >
-        <play-icon v-if="!playing" />
-        <pause-icon v-if="playing" />
-      </a>
-      <a
-        v-if="showSkip && !livestream"
-        class="player-ahead-15-icon"
-        aria-label="go ahead 15 seconds"
-        @click="goAhead15"
-      >
-        <ahead15-icon />
-      </a>
-      <div class="player-track">
-        <div class="player-track-title">
+  <div class="vue-sound">
+    <div v-if="image" class="player-image">
+      <img :src="image" :alt="title" />
+    </div>
+    <div class="player">
+      <div class="player-controls">
+        <a
+          v-if="showSkip && !livestream"
+          class="player-back-15-icon"
+          aria-label="go back 15 seconds"
+          @click="goBack15"
+        >
+          <back15-icon />
+        </a>
+        <a
+          class="player-play-pause-icon"
+          :aria-label="playing ? 'pause' : 'play'"
+          @click="togglePlay"
+        >
+          <play-icon v-if="!playing" />
+          <pause-icon v-if="playing" />
+        </a>
+        <a
+          v-if="showSkip && !livestream"
+          class="player-ahead-15-icon"
+          aria-label="go ahead 15 seconds"
+          @click="goAhead15"
+        >
+          <ahead15-icon />
+        </a>
+        <div class="player-track">
+          <div class="player-track-title">
+            <a
+              v-if="hasTitle && hasTitleLink"
+              :href="titleLink"
+              class="player-track-title-link"
+            >
+              {{ title }}
+            </a>
+            <span v-if="hasTitle && !hasTitleLink">{{ title }}</span>
+            <span v-if="hasTitle && hasDetails"> - </span>
+            <span
+              v-if="hasDetails && !hasDetailsLink"
+              class="player-track-title-details"
+            >
+              {{ details }}
+            </span>
+            <a
+              v-if="hasDetails && hasDetailsLink"
+              :href="detailsLink"
+              class="player-track-title-details-link"
+            >
+              {{ details }}
+            </a>
+          </div>
+          <template v-if="!livestream">
+            <div class="player-track-progress" @click.prevent="seek">
+              <div
+                :style="{ width: percentComplete + '%' }"
+                class="player-track-seeker"
+              />
+              <div
+                :style="{ width: percentBuffered + '%' }"
+                class="player-track-buffered"
+              />
+            </div>
+            <div class="player-track-time">
+              <span class="player-track-time-current">{{
+                convertTimeHHMMSS(currentSeconds)
+              }}</span>
+              <span class="player-track-time-separator">/</span>
+              <span class="player-track-time-total">{{
+                convertTimeHHMMSS(durationSeconds)
+              }}</span>
+            </div>
+          </template>
+        </div>
+        <div
+          class="player-volume"
+          @mouseover.prevent="showVolume = true"
+          @mouseleave.prevent="showVolume = false"
+        >
+          <label for="playerVolume" class="hide-ally-element">
+            volume slider
+          </label>
+          <transition name="slide-left">
+            <input
+              v-show="showVolume"
+              id="playerVolume"
+              v-model="volume"
+              type="range"
+              min="0"
+              max="100"
+            />
+          </transition>
           <a
-            v-if="hasTitle && hasTitleLink"
-            :href="titleLink"
-            class="player-track-title-link"
+            tabindex="0"
+            class="player-volume-icon"
+            :aria-label="muted ? 'unmute' : 'mute'"
+            @click="mute"
+            @keypress.space.enter="mute"
           >
-            {{ title }}
-          </a>
-          <span v-if="hasTitle && !hasTitleLink">{{ title }}</span>
-          <span v-if="hasTitle && hasDetails"> - </span>
-          <span
-            v-if="hasDetails && !hasDetailsLink"
-            class="player-track-title-details"
-          >
-            {{ details }}
-          </span>
-          <a
-            v-if="hasDetails && hasDetailsLink"
-            :href="detailsLink"
-            class="player-track-title-details-link"
-          >
-            {{ details }}
+            <volume-icon v-if="!muted" />
+            <volume-muted-icon v-if="muted" />
           </a>
         </div>
-        <template v-if="!livestream">
-          <div class="player-track-progress" @click.prevent="seek">
-            <div
-              :style="{ width: percentComplete + '%' }"
-              class="player-track-seeker"
-            />
-            <div
-              :style="{ width: percentBuffered + '%' }"
-              class="player-track-buffered"
-            />
-          </div>
-          <div class="player-track-time">
-            <span class="player-track-time-current">{{
-              convertTimeHHMMSS(currentSeconds)
-            }}</span>
-            <span class="player-track-time-separator">/</span>
-            <span class="player-track-time-total">{{
-              convertTimeHHMMSS(durationSeconds)
-            }}</span>
-          </div>
-        </template>
-      </div>
-      <div
-        class="player-volume"
-        @mouseover.prevent="showVolume = true"
-        @mouseleave.prevent="showVolume = false"
-      >
-        <label for="playerVolume" class="hide-ally-element">
-          volume slider
-        </label>
-        <transition name="slide-left">
-          <input
-            v-show="showVolume"
-            id="playerVolume"
-            v-model="volume"
-            type="range"
-            min="0"
-            max="100"
-          />
-        </transition>
         <a
+          v-if="showDownload && !livestream"
           tabindex="0"
-          class="player-volume-icon"
-          :aria-label="muted ? 'unmute' : 'mute'"
-          @click="mute"
-          @keypress.space.enter="mute"
+          class="player-download-icon"
+          aria-label="download"
+          @click="download"
+          @keypress.space.enter="download"
         >
-          <volume-icon v-if="!muted" />
-          <volume-muted-icon v-if="muted" />
+          <download-icon />
         </a>
       </div>
-      <a
-        v-if="showDownload && !livestream"
-        tabindex="0"
-        class="player-download-icon"
-        aria-label="download"
-        @click="download"
-        @keypress.space.enter="download"
-      >
-        <download-icon />
-      </a>
+      <audio
+        ref="audioFile"
+        :loop="innerLoop"
+        :src="file"
+        preload="auto"
+        style="display: none"
+      />
     </div>
-    <audio
-      ref="audioFile"
-      :loop="innerLoop"
-      :src="file"
-      preload="auto"
-      style="display: none"
-    />
   </div>
 </template>
 
@@ -156,6 +161,10 @@ export default {
       default: null
     },
     file: {
+      type: String,
+      default: null
+    },
+    image: {
       type: String,
       default: null
     },
@@ -219,15 +228,15 @@ export default {
       return this.volume / 100 === 0
     },
     percentBuffered () {
-      return (this.buffered / this.durationSeconds) * 100
+      return ( this.buffered / this.durationSeconds ) * 100
     },
     percentComplete () {
-      return (this.currentSeconds / this.durationSeconds) * 100
+      return ( this.currentSeconds / this.durationSeconds ) * 100
     }
   },
   watch: {
-    playing (value) {
-      if (value) {
+    playing ( value ) {
+      if ( value ) {
         return this.audio.play()
       }
       this.audio.pause()
@@ -239,8 +248,8 @@ export default {
   created () {
     this.innerLoop = this.loop
     // keyboard accessibility
-    window.addEventListener('keydown', event => {
-      switch (event.code) {
+    window.addEventListener( 'keydown', event => {
+      switch ( event.code ) {
         case 'Space':
           this.togglePlay()
           break
@@ -248,10 +257,10 @@ export default {
           this.togglePlay()
           break
         case 'ArrowUp':
-          if (this.volume < 100) this.volume++
+          if ( this.volume < 100 ) this.volume++
           break
         case 'ArrowDown':
-          if (this.volume > 0) this.volume--
+          if ( this.volume > 0 ) this.volume--
           break
         case 'ArrowLeft':
           this.goBack15()
@@ -260,28 +269,28 @@ export default {
           this.goAhead15()
           break
       }
-    })
+    } )
   },
   mounted () {
     this.audio = this.$refs.audioFile
-    this.audio.addEventListener('timeupdate', this.update)
-    this.audio.addEventListener('loadeddata', this.load)
-    this.audio.addEventListener('buffered', this.update)
-    this.audio.addEventListener('pause', () => {
+    this.audio.addEventListener( 'timeupdate', this.update )
+    this.audio.addEventListener( 'loadeddata', this.load )
+    this.audio.addEventListener( 'buffered', this.update )
+    this.audio.addEventListener( 'pause', () => {
       this.playing = false
-    })
-    this.audio.addEventListener('play', () => {
+    } )
+    this.audio.addEventListener( 'play', () => {
       this.playing = true
-    })
+    } )
   },
   methods: {
-    convertTimeHHMMSS (val) {
-      const hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
-      return hhmmss.indexOf('00:') === 0 ? hhmmss.substr(3) : hhmmss
+    convertTimeHHMMSS ( val ) {
+      const hhmmss = new Date( val * 1000 ).toISOString().substr( 11, 8 )
+      return hhmmss.indexOf( '00:' ) === 0 ? hhmmss.substr( 3 ) : hhmmss
     },
     download () {
       this.stop()
-      window.open(this.file, 'download')
+      window.open( this.file, 'download' )
     },
     goAhead15 () {
       this.audio.currentTime = this.audio.currentTime + 15
@@ -290,27 +299,27 @@ export default {
       this.audio.currentTime = this.audio.currentTime - 15
     },
     load () {
-      if (this.audio.readyState >= 2) {
+      if ( this.audio.readyState >= 2 ) {
         this.loaded = true
-        this.durationSeconds = parseInt(this.audio.duration)
+        this.durationSeconds = parseInt( this.audio.duration )
         this.playing = this.autoPlay
         return this.playing
       }
-      throw new Error('Failed to load sound file.')
+      throw new Error( 'Failed to load sound file.' )
     },
     mute () {
-      if (this.muted) {
+      if ( this.muted ) {
         this.volume = this.previousVolume
         return this.volume
       }
       this.previousVolume = this.volume
       this.volume = 0
     },
-    seek (e) {
-      if (!this.loaded) return
+    seek ( e ) {
+      if ( !this.loaded ) return
       const el = e.target.getBoundingClientRect()
-      const seekPos = (e.clientX - el.left) / el.width
-      this.audio.currentTime = (this.audio.duration * seekPos)
+      const seekPos = ( e.clientX - el.left ) / el.width
+      this.audio.currentTime = ( this.audio.duration * seekPos )
     },
     stop () {
       this.playing = false
@@ -321,7 +330,7 @@ export default {
     },
     update () {
       this.currentSeconds = this.audio.currentTime
-      this.buffered = this.audio.buffered.end(0)
+      this.buffered = this.audio.buffered.end( 0 )
     }
   }
 }
@@ -332,6 +341,7 @@ $breakpoint: 768px;
 
 :root {
   --player-background: #00123e;
+  --player-font-family: "Open Sans", sans-serif;
   --player-font-size: 0.9rem;
   --player-font-size-small: 0.7rem;
   --player-font-weight: 300;
@@ -345,10 +355,19 @@ $breakpoint: 768px;
   --player-input-range-color: var(--player-text-color);
 }
 
+.player-image {
+  display: flex;
+}
+
+.player-image img {
+  max-width: 100%;
+  height: auto;
+}
+
 .player {
-  width: 100%;
   background-color: var(--player-background);
   padding: 0.85rem;
+  font-family: var(--player-font-family);
   font-weight: var(--player-font-weight);
   position: relative;
 }
@@ -400,6 +419,7 @@ $breakpoint: 768px;
   flex: auto;
   padding: 0 2rem;
   overflow: hidden;
+  width: 100%;
 }
 
 .player-track-title {
@@ -412,7 +432,9 @@ $breakpoint: 768px;
   white-space: nowrap;
 }
 
-.player-track-title-details {
+.player-track-title-details,
+.player-track-title-details-link {
+  font-weight: var(--player-font-weight);
   color: var(--player-text-color);
   font-weight: 300;
 }
@@ -632,5 +654,16 @@ input[type="range"]:focus::-ms-fill-upper {
 .slide-right-enter {
   opacity: 0;
   transform: translate(-2em, 0);
+}
+
+.hide-ally-element {
+  border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 </style>

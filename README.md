@@ -37,15 +37,16 @@ import VueSound from 'vue-sound'
 
 All props except for the audio file are optional.
 
-| Prop          | Type    | Default | Description                                                              |
+| Prop          | Type    | Default | Description |
 | ------------- | ------- | ------- | ------------------------------------------------------------------------ |
 | livestream    | boolean | false   | if true, displays slimmer version of audio player meant for a livestream |
-| show-download | boolean | false   | if true, display a download button                                       |
-| title         | string  | null    | the title of the track                                                   |
-| title-link    | string  | null    | url for the title link                                                   |
-| details       | string  | null    | details for the track                                                    |
-| details-link  | string  | null    | url for the details                                                      |
-| file          | string  | null    | url for the audio file (mp3 is highly recommended)                       |
+| show-download | boolean | false   | if true, display a download button |
+| image         | string  | null    | url for the track image |
+| title         | string  | null    | the title of the track |
+| title-link    | string  | null    | url for the title link |
+| details       | string  | null    | details for the track |
+| details-link  | string  | null    | url for the details link |
+| file          | string  | null    | url for the audio file (mp3 is highly recommended) |
 
 #### Styles
 
@@ -85,7 +86,7 @@ npm install
 ### Compiles and hot-reloads for development
 
 ```
-npm run serve
+npm run dev
 ```
 
 ### Compiles and minifies for production
