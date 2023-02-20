@@ -488,4 +488,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var VueSound = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
-export { VueSound };
+var main = {
+  install: (app) => {
+    app.component("VueSound", VueSound);
+  }
+};
+export { main as default };

@@ -5,28 +5,27 @@ import {resolve} from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   css: {
-  preprocessorOptions: {
-    scss: {
-      additionalData: `@import "@/assets/scss/main.scss";`
-    }
-  }
-},
-  resolve: {
-    alias: [
-      // @/xxxx => src/xxxx
-      {
-        find: /^@\/(.+)/,
-        replacement: `${resolve(__dirname, 'src')}/$1`
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "../src/assets/scss/main.scss";`
       }
-    ]
-
+    }
   },
   plugins: [vue()],
   build: {
     lib: {
+      // the entry file that is loaded whenever someone imports
+      // your plugin in their app
       entry: resolve(__dirname, 'lib/main.js'),
+
+            // the exposed global variable
+      // is required when formats includes 'umd' or 'iife'
       name: 'VueSound',
-      // the proper extensions will be added
+
+      // the proper extensions will be added, ie:
+         // name.js (es module)
+         // name.umd.cjs) (common js module)
+      // default fileName is the name option of package.json
       fileName: 'vue-sound'
     },
     rollupOptions: {

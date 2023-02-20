@@ -123,13 +123,13 @@
 </template>
 
 <script>
-import PlayIcon from '@/components/svg/PlayIcon.vue'
-import PauseIcon from '@/components/svg/PauseIcon.vue'
-import Back15Icon from '@/components/svg/Back15Icon.vue'
-import Ahead15Icon from '@/components/svg/Ahead15Icon.vue'
-import VolumeIcon from '@/components/svg/VolumeIcon.vue'
-import VolumeMutedIcon from '@/components/svg/VolumeMutedIcon.vue'
-import DownloadIcon from '@/components/svg/DownloadIcon.vue'
+import PlayIcon from '../components/svg/PlayIcon.vue'
+import PauseIcon from '../components/svg/PauseIcon.vue'
+import Back15Icon from '../components/svg/Back15Icon.vue'
+import Ahead15Icon from '../components/svg/Ahead15Icon.vue'
+import VolumeIcon from '../components/svg/VolumeIcon.vue'
+import VolumeMutedIcon from '../components/svg/VolumeMutedIcon.vue'
+import DownloadIcon from '../components/svg/DownloadIcon.vue'
 
 export default {
   name: 'VueSound',

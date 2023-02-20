@@ -1,6 +1,6 @@
 {
   "name": "vue-sound",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "type": "module",
   "files": [
     "dist"
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --noEmit",
+    "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
@@ -49,12 +49,23 @@
   },
   "keywords": [
     "vue",
+    "music",
+    "music player",
+    "mp3",
     "audio",
     "audio player",
+    "player",
     "html5 audio",
+    "live stream",
     "livestream",
+    "livestream player",
+    "live stream player",
+    "vue js",
     "vuejs",
-    "component"
+    "component",
+    "sfc",
+    "vue component",
+    "vue sfc"
   ],
   "author": "Kim LaRocca",
   "license": "MIT",

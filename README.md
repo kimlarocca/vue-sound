@@ -110,7 +110,7 @@ Finally, push the updates to the gh-pages branch:
 git subtree push --prefix dist origin gh-pages
 ```
 
-In a few minutes, Github Pages should refresh with your newest repository changes. Visit [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound) to view Storybook!
+In a few minutes, Github Pages should refresh with your newest repository changes. Visit [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound) to view the demo page!
 
 #### Runs unit tests
 
