@@ -97,21 +97,9 @@ npm run build
 
 #### Deploy To Github Pages
 
-First build the project:
+Pushing to the main branch will update Github Pages. 
 
-```
-npm run build
-```
-
-Then push to the main branch.
-
-Finally, push the updates to the gh-pages branch:
-
-```
-git subtree push --prefix dist origin gh-pages
-```
-
-In a few minutes, Github Pages should refresh with your newest repository changes. Visit [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound) to view the demo page!
+A few minutes after pushing to main, Github Pages should refresh with your newest changes. Visit [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound) to view the demo page!
 
 #### Runs unit tests
 
