@@ -1,16 +1,16 @@
 {
   "name": "vue-sound",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-sound.umd.cjs",
-  "module": "./dist/vue-sound.js",
+  "main": "./dist/vue-sound.umd.js",
+  "module": "./dist/vue-sound.es.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-sound.js",
-      "require": "./dist/vue-sound.umd.cjs"
+      "import": "./dist/vue-sound.es.js",
+      "require": "./dist/vue-sound.umd.js"
     },
     "./style.css": "./dist/style.css"
   },
