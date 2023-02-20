@@ -493,4 +493,4 @@ var main = {
     App.component("VueSound", VueSound);
   }
 };
-export { main as default };
+export { VueSound, main as default };
