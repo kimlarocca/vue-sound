@@ -54,18 +54,19 @@ Override these CSS variables to customize the look and feel:
 
 ```
 :root {
-    --player-background: #ff9efc;
-    --player-font-size: 1rem;
-    --player-font-size-small: .7rem;
-    --player-font-weight: 300;
-    --player-font-weight-bold: 500;
-    --player-text-color: #451a43;
-    --player-icon-color: var(--player-text-color);
-    --player-link-color: var(--player-text-color);
-    --player-progress-color: #f25ced;
-    --player-buffered-color: #cc4ec8;
-    --player-seeker-color: #451a43;
-    --player-input-range-color: var(--player-text-color);
+  --player-background: #00123e;
+  --player-font-family: "Open Sans", sans-serif;
+  --player-font-size: 0.9rem;
+  --player-font-size-small: 0.7rem;
+  --player-font-weight: 300;
+  --player-font-weight-bold: 600;
+  --player-text-color: #ffffff;
+  --player-icon-color: var(--player-text-color);
+  --player-link-color: var(--player-text-color);
+  --player-progress-color: #41b883;
+  --player-buffered-color: #41b883;
+  --player-seeker-color: #ffffff;
+  --player-input-range-color: var(--player-text-color);
 }
 ```
 

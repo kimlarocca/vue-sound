@@ -1,9 +1,10 @@
 {
   "name": "vue-sound",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "dist/style.css"
   ],
   "main": "./dist/vue-sound.umd.js",
   "module": "./dist/vue-sound.es.js",
@@ -40,6 +41,7 @@
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vue-loader": "^16.8.1",
+    "vue-router": "^4.1.6",
     "vue-tsc": "^0.3.0"
   },
   "description": "An audio player built with Vue.js",
