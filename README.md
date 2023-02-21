@@ -9,14 +9,19 @@ Demo: [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-
 ## Installation and Usage
 
 ```
-npm install vue-sound
+npm install vue-sound --save-dev
 ```
 
-Import or require Vue and Vue Sound in your code:
+Import Vue Sound:
 
 ```
-import Vue from 'vue'
-import VueSound from 'vue-sound'
+import { VueSound } from 'vue-sound'
+```
+
+Import the Vue Sound styles from 'vue-sound/style.css'. For example:
+
+```
+@import 'vue-sound/style.css';
 ```
 
 ### Example
@@ -106,12 +111,6 @@ A few minutes after pushing to main, Github Pages should refresh with your newes
 
 ```
 npm run test
-```
-
-#### Lints and fixes files
-
-```
-npm run lint
 ```
 
 ## Questions / Contributing
