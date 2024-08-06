@@ -4,7 +4,7 @@ import {resolve} from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: '/vue-sound/',
+  base: '/vue-sound/',
   plugins: [vue()],
   build: {
     lib: {
