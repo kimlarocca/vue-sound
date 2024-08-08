@@ -4,7 +4,7 @@
 
 Add a beautiful & accessible cross-browser HTML5 audio player to your Vue app!
 
-Demo: [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound)
+Demo: [https://www.kimlarocca.com/vue-sound/](https://www.kimlarocca.com/vue-sound/)
 
 ## Installation and Usage
 
@@ -100,12 +100,6 @@ npm run dev
 ```
 npm run build
 ```
-
-#### Deploy To Github Pages
-
-Pushing to the main branch will update Github Pages. 
-
-A few minutes after pushing to main, Github Pages should refresh with your newest changes. Visit [https://kimlarocca.github.io/vue-sound](https://kimlarocca.github.io/vue-sound) to view the demo page!
 
 #### Runs unit tests
 
